@@ -1,4 +1,4 @@
-[![Spotify](https://guychienll.vercel.app/api/spotify)](https://open.spotify.com/user/guychienll)
+[![Spotify](https://guychienll.vercel.app/api/spotify)](https://open.spotify.com/user/11133280780)
 
 [![Guy's github stats](https://github-readme-stats.vercel.app/api?username=guychienll&theme=dracula&show_icons=true)](https://github.com/guychienll?tab=repositories)
 
