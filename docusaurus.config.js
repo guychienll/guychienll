@@ -11,7 +11,7 @@ const config = {
     favicon: 'img/favicon.ico',
 
     url: 'https://github.com',
-    baseUrl: '/guychienll/',
+    baseUrl: '/',
     organizationName: 'guychienll',
     projectName: 'guychienll',
     deploymentBranch: 'gh-pages',
