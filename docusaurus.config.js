@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'My Site',
+    title: 'Guy 手札',
     tagline: 'Dinosaurs are cool',
     favicon: 'img/favicon.ico',
 
@@ -15,10 +15,12 @@ const config = {
     organizationName: 'guychienll',
     projectName: 'guychienll',
     deploymentBranch: 'gh-pages',
-
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-
+    themes: ['@docusaurus/theme-mermaid'],
+    markdown: {
+        mermaid: true
+    },
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
@@ -57,25 +59,19 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             // Replace with your project's social card
-            image: 'img/docusaurus-social-card.jpg',
+            // image: '',
             navbar: {
-                title: 'My Site',
+                title: '',
                 logo: {
-                    alt: 'My Site Logo',
-                    src: 'img/logo.svg'
+                    alt: 'site logo',
+                    src: 'img/guy.png'
                 },
                 items: [
                     {
                         type: 'doc',
                         docId: 'intro',
                         position: 'left',
-                        label: 'Tutorial'
-                    },
-                    { to: '/blog', label: 'Blog', position: 'left' },
-                    {
-                        href: 'https://github.com/facebook/docusaurus',
-                        label: 'GitHub',
-                        position: 'right'
+                        label: '手札'
                     }
                 ]
             },
@@ -86,7 +82,7 @@ const config = {
                         title: 'Docs',
                         items: [
                             {
-                                label: 'Tutorial',
+                                label: '手札',
                                 to: '/docs/intro'
                             }
                         ]
@@ -95,16 +91,12 @@ const config = {
                         title: 'Community',
                         items: [
                             {
-                                label: 'Stack Overflow',
-                                href: 'https://stackoverflow.com/questions/tagged/docusaurus'
+                                href: 'https://github.com/guychienll',
+                                label: 'GitHub'
                             },
                             {
-                                label: 'Discord',
-                                href: 'https://discordapp.com/invite/docusaurus'
-                            },
-                            {
-                                label: 'Twitter',
-                                href: 'https://twitter.com/docusaurus'
+                                href: 'https://www.linkedin.com/in/guy-chien-0566b61b9/',
+                                label: 'LinkedIn'
                             }
                         ]
                     },
@@ -112,17 +104,13 @@ const config = {
                         title: 'More',
                         items: [
                             {
-                                label: 'Blog',
-                                to: '/blog'
-                            },
-                            {
-                                label: 'GitHub',
-                                href: 'https://github.com/facebook/docusaurus'
+                                label: 'Instagram',
+                                href: 'https://www.instagram.com/_chienli_'
                             }
                         ]
                     }
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
+                copyright: `Copyright © ${new Date().getFullYear()} guychienll. Built with Docusaurus.`
             },
             prism: {
                 theme: lightCodeTheme,
