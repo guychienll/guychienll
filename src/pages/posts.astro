@@ -7,20 +7,21 @@ const pageTitle = "Posts";
 ---
 
 <Layout pageTitle={pageTitle}>
-    <div class="gif">
-        <img width="300" height="259" alt="RaccoonNotesGif" src="/blog.webp" />
-    </div>
-    <h2>Blog</h2>
-    <ul role="list" class="link-card-grid">
-        {
-            allPosts.map((cardPost) => (
-                <Card
-                    url={`/posts/${cardPost.slug}/`}
-                    image={cardPost.data.image.url}
-                    title={cardPost.data.title}
-                    date={cardPost.data.date}
-                />
-            ))
-        }
-    </ul>
+  <div class="gif">
+    <img width="300" height="259" alt="RaccoonNotesGif" src="/fire2.webp" />
+  </div>
+  <h2>Blog</h2>
+  <ul role="list" class="link-card-grid">
+    {
+      allPosts.map((cardPost) => (
+        <Card
+          url={`/posts/${cardPost.slug}/`}
+          image={cardPost.data.image.url}
+          title={cardPost.data.title}
+          date={cardPost.data.date}
+          body={cardPost.data.body}
+        />
+      ))
+    }
+  </ul>
 </Layout>
