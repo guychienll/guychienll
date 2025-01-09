@@ -9,11 +9,15 @@ image:
 
 ## Preparation
 
+<div class="table-container">
+
 | Name                                                                                 | Role             | Note                        |
-|:-------------------------------------------------------------------------------------|------------------|:----------------------------|
+| :----------------------------------------------------------------------------------- | ---------------- | :-------------------------- |
 | [ideavim](https://plugins.jetbrains.com/plugin/164-ideavim)                          | jetbrains plugin | required                    |
 | [acejump](https://plugins.jetbrains.com/plugin/7086-acejump)                         | jetbrains plugin | optional ( easymotion need) |
 | [ideavim-easymotion)](https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion) | jetbrains plugin | optional ( easymotion need) |
+
+</div>
 
 ## Suggestion Configuration
 

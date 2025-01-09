@@ -46,6 +46,9 @@ image:
 
 ### Edit Action
 
+
+<div class="table-container">
+
 | key | name       | intention                    | using with text object | notes                        |
 | --- | ---------- | :--------------------------- | :--------------------: | :--------------------------- |
 | v   | visual     | select                       |           O            | `u` casing `~` toggle casing |
@@ -61,7 +64,11 @@ image:
 | u   | undo       | undo action                  |           X            |                              |
 | r   | replace    | replace a char               |           X            |                              |
 
+</div>
+
 ### Navigation Action
+
+<div class="table-container">
 
 | key | name   | intention                  | using with text object | notes                                               |
 | --- | ------ | :------------------------- | :--------------------: | :-------------------------------------------------- |
@@ -74,6 +81,7 @@ image:
 | /   | search | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
 | \{  | block  | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
 
+</div>
 ### Commands
 
 -   stream editor (sed)
@@ -84,12 +92,18 @@ image:
 
 ### Scope
 
+<div class="table-container">
+
 | key | name   | intention    |
 | --- | ------ | :----------- |
 | i   | inner  | inner scope  |
 | a   | around | around scope |
 
+</div>
+
 ### Noun
+
+<div class="table-container">
 
 | key | name            |
 | --- | :-------------- |
@@ -102,6 +116,8 @@ image:
 | \(  | round brackets  |
 | '   | quotation mark  |
 | `   | back tick       |
+
+</div>
 
 ## Cheat Sheet
 

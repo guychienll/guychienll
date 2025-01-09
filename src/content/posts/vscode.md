@@ -9,6 +9,8 @@ image:
 
 ## Preparation
 
+<div class="table-container">
+
 | Name                                                                                                                             | Role           | Note                          |
 | :------------------------------------------------------------------------------------------------------------------------------- | -------------- | :---------------------------- |
 | [vscode](https://code.visualstudio.com/)                                                                                         | editor         | required                      |
@@ -19,6 +21,8 @@ image:
 | [wix.glean](https://marketplace.visualstudio.com/items?itemName=wix.glean)                                                       | vscode plugin  | optional [suggested:frontend] |
 | [vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)                                      | browser plugin | optional [suggested:all]      |
 | [hackmd](https://hackmd.io)                                                                                                      | online notes   | optional [suggested:all]      |
+
+</div>
 
 ## Suggested VSCode Vim Configuration
 
