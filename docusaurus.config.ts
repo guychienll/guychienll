@@ -67,7 +67,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/social-card.png",
+    image: "img/media/social-card.png",
     navbar: {
       title: "guychienll",
       // logo: {
