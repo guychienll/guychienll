@@ -27,8 +27,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "zh-Hant",
+    locales: ["zh-Hant"],
   },
 
   presets: [
@@ -88,11 +88,11 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Notes",
           items: [
             {
               label: "Notes",
-              to: "/docs/intro",
+              to: "/notes/vim",
             },
           ],
         },
