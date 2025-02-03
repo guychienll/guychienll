@@ -1,0 +1,8 @@
+{
+  "label": "Vim",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "All my vim setup and tips"
+  }
+}
