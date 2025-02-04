@@ -2,6 +2,7 @@
 sidebar_position: 1
 ---
 
+
 # Vim Basics
 
 ## History & Pronounced

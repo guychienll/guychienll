@@ -39,6 +39,8 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           path: "notes",
           routeBasePath: "notes",
+          breadcrumbs: true,
+
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -126,6 +128,8 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [require.resolve("./plugins/index.js")],
 };
 
 export default config;

@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 
@@ -28,10 +29,6 @@
   --ifm-color-primary-light: #a5d6a7;
   --ifm-color-primary-lighter: #c8e6c9;
   --ifm-color-primary-lightest: #e8f5e9;
-}
-
-.footer--dark {
-  background-color: var(--ifm-background-surface-color);
 }
 
 .navbar__title {
