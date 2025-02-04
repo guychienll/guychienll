@@ -72,10 +72,10 @@ const config: Config = {
     image: "img/media/social-card.png",
     navbar: {
       title: "guychienll",
-      // logo: {
-      //   alt: "",
-      //   src: "",
-      // },
+      logo: {
+        alt: "",
+        src: "img/favicon.ico",
+      },
       items: [
         {
           type: "docSidebar",
