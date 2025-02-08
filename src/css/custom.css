@@ -8,6 +8,11 @@
  * work well for content-centric websites.
  */
 
+@theme {
+  --font-permanent-marker: "Permanent Marker", cursive;
+  --font-sriracha: "Sriracha", cursive;
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #4caf50;

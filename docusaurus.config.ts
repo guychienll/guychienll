@@ -68,14 +68,30 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: "https://kit.fontawesome.com/badc861d67.js",
+      crossorigin: "anonymous",
+      async: false,
+    },
+  ],
+
   themeConfig: {
     image: "img/media/social-card.png",
+    colorMode: {
+      defaultMode: "dark",
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
+    /**
+     * original docusaurus provided navbar & footer configuration
+     */
     navbar: {
       title: "guychienll",
-      logo: {
-        alt: "",
-        src: "img/favicon.ico",
-      },
+      // logo: {
+      //   alt: "",
+      //   src: "img/favicon.ico",
+      // },
       items: [
         {
           type: "docSidebar",
@@ -83,46 +99,41 @@ const config: Config = {
           position: "left",
           label: "Notes",
         },
-        // { to: "/blog", label: "Blog", position: "left" },
       ],
     },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Notes",
-          items: [
-            {
-              label: "Notes",
-              to: "/notes/vim",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "LinkedIn",
-              href: "https://www.linkedin.com/in/guy-chien-0566b61b9/",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            // {
-            //   label: "Blog",
-            //   to: "/blog",
-            // },
-            {
-              label: "GitHub",
-              href: "https://github.com/guychienll",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-    },
+    // footer: {
+    //   style: "dark",
+    //   links: [
+    //     {
+    //       title: "Notes",
+    //       items: [
+    //         {
+    //           label: "Notes",
+    //           to: "/notes/vim",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Community",
+    //       items: [
+    //         {
+    //           label: "LinkedIn",
+    //           href: "https://www.linkedin.com/in/guy-chien-0566b61b9/",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "More",
+    //       items: [
+    //         {
+    //           label: "GitHub",
+    //           href: "https://github.com/guychienll",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
