@@ -36,11 +36,52 @@ function UnderConstructionSign() {
   );
 }
 
+const posts = [
+  {
+    title: "Vim Basics",
+    description: "Vim 基礎筆記 / 模式切換 / 記憶詞 / Text Object",
+    link: "/notes/vim",
+    date: "2024-04-08",
+  },
+  {
+    title: "VSCode 配置推薦",
+    description:
+      "VSCode 配置推薦，包含 Vim 生態系 plugins / VSCode 設定 / 自訂快捷鍵",
+    link: "/notes/vim/vscode",
+    date: "2024-04-08",
+  },
+  {
+    title: "JetBrains 配置推薦",
+    description:
+      "JetBrains 系列 IDE 配置推薦，包含 vim 生態系 plugins / 自訂快捷鍵",
+    link: "/notes/vim/jetbrains",
+    date: "2024-04-08",
+  },
+  {
+    title: "Webpack Tree Shaking",
+    description:
+      "使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking",
+    link: "/notes/webpack/tree-shaking",
+    date: "2023-11-09",
+  },
+  {
+    title: "Webpack Loaders 與 Plugins",
+    description:
+      "Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。",
+    link: "/notes/webpack/loaders",
+    date: "2023-12-10",
+  },
+];
+
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const onClickPost = (link: string) => {
+    window.location.href = link;
   };
 
   return (
@@ -88,7 +129,7 @@ export default function Home(): ReactNode {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="text-gray-400 text-md font-bold mb-2 text-left font-sriracha tracking-widest"
+                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -101,8 +142,10 @@ export default function Home(): ReactNode {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 5 年的 
-                    React 經驗，前端效能改善經驗，並協助團隊建立設計系統和 OpenAPI Schema Type Generator 等...，來減少團隊成員之間的溝通障礙，目前於{" "}
+                    我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 5 年的
+                    React 經驗，前端效能改善經驗，並協助團隊建立設計系統和
+                    OpenAPI Schema Type Generator
+                    等...，來減少團隊成員之間的溝通障礙，目前於{" "}
                     <motion.a href="https://www.linkedin.com/company/rezio-io/posts/?feedView=all">
                       rezio
                     </motion.a>{" "}
@@ -119,7 +162,7 @@ export default function Home(): ReactNode {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="text-gray-400 text-md font-bold mb-2 text-left font-sriracha tracking-widest"
+                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -247,7 +290,7 @@ export default function Home(): ReactNode {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="text-gray-400 text-md font-bold mb-2 text-left font-sriracha tracking-widest"
+                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -320,7 +363,7 @@ export default function Home(): ReactNode {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="text-gray-400 text-md font-bold mb-2 text-left font-sriracha tracking-widest"
+                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -345,7 +388,68 @@ export default function Home(): ReactNode {
               </motion.div>
             </section>
             <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
-              <UnderConstructionSign />
+              <motion.div
+                className="w-full h-full flex flex-col rounded-lg gap-y-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <motion.div
+                  className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  Posts
+                </motion.div>
+                {posts
+                  .sort((a, b) => {
+                    return (
+                      new Date(b.date).getTime() - new Date(a.date).getTime()
+                    );
+                  })
+                  .slice(0, 5)
+                  .map((post) => {
+                    return (
+                      <motion.div
+                        className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer h-[130px]"
+                        onClick={() => {
+                          onClickPost(post.link);
+                        }}
+                        whileHover={{
+                          scale: 1.02,
+                          transition: {
+                            duration: 0.2,
+                            ease: "easeInOut",
+                          },
+                        }}
+                        whileTap={{
+                          scale: 0.98,
+                        }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: {
+                            duration: 0.5,
+                            delay: 0.1,
+                          },
+                        }}
+                      >
+                        <motion.div className="text-md text-gray-400 mb-2 font-bold">
+                          {post.title}
+                        </motion.div>
+                        <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
+                          {post.description}
+                        </motion.div>
+                        <div className="flex-1" />
+                        <motion.div className="text-xs text-gray-500 text-right">
+                          {post.date}
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+              </motion.div>
             </section>
             <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
               <UnderConstructionSign />

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# JetBrains
+# JetBrains 配置推薦
 
 ## Preparation
 

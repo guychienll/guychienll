@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# VSCode
+# VSCode 配置推薦
 
 ## Preparation
 

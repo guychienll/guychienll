@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");
+
 @import "tailwindcss";
 
 /**
@@ -11,6 +13,7 @@
 @theme {
   --font-permanent-marker: "Permanent Marker", cursive;
   --font-sriracha: "Sriracha", cursive;
+  --font-zen-maru-gothic: "Zen Maru Gothic", sans-serif;
 }
 
 /* You can override the default Infima variables here. */
@@ -38,7 +41,7 @@
 
 .navbar__title {
   font-family: "Permanent Marker", cursive;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.35rem;
   font-size: 1.5rem;
 }
 
@@ -49,7 +52,7 @@
 }
 
 .menu__link {
-  font-family: "Sriracha", cursive;
+  font-family: "Sriracha", "Zen Maru Gothic", cursive;
   letter-spacing: 0.1rem;
   font-size: 1.3em;
 }
