@@ -3,40 +3,33 @@ import Layout from "@theme/Layout";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
+import Block from "../components/Block";
 import "./index.css";
 
-function UnderConstructionSign() {
-  return (
-    <motion.div className="flex flex-col items-center gap-y-2 animate-pulse">
-      <motion.i
-        title="working in progress"
-        className="fa-solid fa-paint-roller text-4xl cursor-pointer"
-        whileHover={{
-          opacity: 0.6,
-          scale: 1.2,
-          rotate: 45,
-        }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            ease: "easeOut",
-          },
-        }}
-        whileTap={{
-          scale: 0.9,
-        }}
-      />
-      <motion.div className="text-gray-400 text-md font-bold mb-2 text-left font-sriracha tracking-widest">
-        work in progress
-      </motion.div>
-    </motion.div>
-  );
-}
+const SOCIAL_LINKS = [
+  {
+    title: "github",
+    icon: "fa-brands fa-github text-2xl",
+    url: "https://github.com/guychienll",
+  },
+  {
+    title: "linkedin",
+    icon: "fa-brands fa-linkedin text-2xl",
+    url: "https://www.linkedin.com/in/guy-chien-0566b61b9/",
+  },
+  {
+    title: "email",
+    icon: "fa-regular fa-envelope text-2xl",
+    url: "mailto:guychienll@gmail.com",
+  },
+  {
+    title: "threads",
+    icon: "fa-brands fa-threads text-2xl",
+    url: "https://www.threads.net/@_chienli_",
+  },
+] as const;
 
-const posts = [
+const POSTS = [
   {
     title: "Vim Basics",
     description: "Vim 基礎筆記 / 模式切換 / 記憶詞 / Text Object",
@@ -71,7 +64,164 @@ const posts = [
     link: "/notes/webpack/loaders",
     date: "2023-12-10",
   },
-];
+]
+  .sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  })
+  .slice(0, 5);
+
+const SKILLS = [
+  {
+    title: "vim",
+    icon: "devicon-vim-plain text-2xl",
+  },
+  {
+    title: "typescript",
+    icon: "devicon-typescript-plain text-2xl",
+  },
+  {
+    title: "react / react-native",
+    icon: "devicon-react-original text-2xl",
+  },
+  {
+    title: "sass",
+    icon: "devicon-sass-original text-2xl",
+  },
+  {
+    title: "tailwindcss",
+    icon: "devicon-tailwindcss-plain text-2xl",
+  },
+  {
+    title: "babel",
+    icon: "devicon-babel-plain text-2xl",
+  },
+  {
+    title: "postcss",
+    icon: "devicon-postcss-plain text-2xl",
+  },
+  {
+    title: "webpack",
+    icon: "devicon-webpack-plain text-2xl",
+  },
+  {
+    title: "storybook",
+    icon: "devicon-storybook-plain text-2xl",
+  },
+  {
+    title: "jest",
+    icon: "devicon-jest-plain text-2xl",
+  },
+  {
+    title: "playwright",
+    icon: "devicon-playwright-plain text-2xl",
+  },
+  {
+    title: "nodejs",
+    icon: "devicon-nodejs-plain text-2xl",
+  },
+  {
+    title: "git",
+    icon: "devicon-git-plain text-2xl",
+  },
+  {
+    title: "docker",
+    icon: "devicon-docker-plain text-2xl",
+  },
+  {
+    title: "github actions",
+    icon: "devicon-github-original text-2xl",
+  },
+] as const;
+
+interface ProjectItemProps {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
+
+function ProjectItem({ title, description, image, link }: ProjectItemProps) {
+  const onClickProjectItem = () => {
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <motion.div
+      title={`${title} - ${description}`}
+      className="relative w-full aspect-[16/9] rounded-lg overflow-hidden box-border group cursor-pointer"
+      whileHover={{
+        scale: 1.02,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut", 
+        },
+      }}
+      whileTap={{
+        scale: 0.98,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      }}
+      onClick={onClickProjectItem}
+    >
+      <motion.img
+        width={1600}
+        height={900}
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover"
+      />
+      <motion.div 
+        className="absolute inset-0 backdrop-blur-sm bg-black/30 opacity-0 group-hover:opacity-100 active:opacity-100 transition-all duration-300 flex items-center justify-center"
+      >
+        <motion.div className="flex flex-col items-center">
+          <motion.div className="text-white text-center px-4 font-zen-maru-gothic">
+            {title}
+          </motion.div>
+          <motion.div className="text-white text-center px-4 font-zen-maru-gothic line-clamp-2">
+            {description}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+const PROJECTS = [
+  {
+    title: "幫農事 | ifarmer",
+    description: "為直接跟農夫買內部運作管理系統，便於農夫管理訂單、產品、物流",
+    image: "/img/media/ifarmer-16-9.jpg",
+    link: "https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148",
+  },
+  {
+    title: "葛林美斯家具 | Glimax",
+    description:
+      "葛林美斯家具品牌官網，全站包含搜尋、會員、產品列表篩選分頁，並提供顧客線上諮詢表單寄送",
+    image: "/img/media/glimax-16-9.png",
+    link: "https://oa7-11.web.app/",
+  },
+  {
+    title: "fake line message generator",
+    description: "生成假 Line 訊息，協助行銷人員推廣產品。",
+    image: "/img/media/flmg-16-9.png",
+    link: "https://flmg.guychienll.dev",
+  },
+  {
+    title: "Pull Request Platform",
+    description:
+      "Pull Request 平台，協助團隊成員管理跨 Repository Pull Request",
+    image: "/img/media/prp-16-9.png",
+    link: "https://pr.guychienll.dev",
+  },
+  {
+    title: ".vim",
+    description: "個人 Vim 配置，包含 Vim 生態系 plugins / 自訂快捷鍵",
+    image: "/img/media/vim-16-9.png",
+    link: "https://github.com/guychienll/.vim",
+  },
+] as const;
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -103,7 +253,7 @@ export default function Home(): ReactNode {
               </div>
             </section>
             <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2">
-              <motion.div className="avatar">
+              <Block id="avatar" align="center">
                 <motion.img
                   width={200}
                   height={200}
@@ -111,348 +261,189 @@ export default function Home(): ReactNode {
                   alt="avatar"
                   className="object-cover rounded-full ring-6 ring-[#101010]"
                 />
-              </motion.div>
-              <motion.div
-                className="self-introduction flex flex-col items-center gap-y-4 py-4"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                <motion.div className="flex flex-col items-center text-gray-100 font-bold text-xl tracking-wider">
-                  Guy C.
-                </motion.div>
+              </Block>
+              <motion.div className="flex flex-col items-center gap-y-4 py-4">
+                <Block id="name" align="center">
+                  <motion.div className="flex flex-col items-center text-gray-100 font-bold text-xl tracking-wider">
+                    Guy C.
+                  </motion.div>
+                </Block>
 
-                <motion.div
-                  className="w-full about-me"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div
-                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    About Me
-                  </motion.div>
-                  <motion.div
-                    className="text-sm text-gray-200 text-left indent-4"
-                    initial={{ x: 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 5 年的
-                    React 經驗，前端效能改善經驗，並協助團隊建立設計系統和
-                    OpenAPI Schema Type Generator
-                    等...，來減少團隊成員之間的溝通障礙，目前於{" "}
-                    <motion.a href="https://www.linkedin.com/company/rezio-io/posts/?feedView=all">
-                      rezio
-                    </motion.a>{" "}
-                    擔任資深前端工程師。任何合作機會歡迎{" "}
-                    <motion.a href="mailto:guychienll@gmail.com">信箱</motion.a>{" "}
-                    連絡我。
-                  </motion.div>
-                </motion.div>
+                <Block id="about-me" align="left">
+                  我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 5 年的
+                  React 經驗，前端效能改善經驗，並協助團隊建立設計系統和 OpenAPI
+                  Schema Type Generator
+                  等...，來減少團隊成員之間的溝通障礙，目前於{" "}
+                  <motion.a href="https://www.linkedin.com/company/rezio-io/posts/?feedView=all">
+                    rezio
+                  </motion.a>{" "}
+                  擔任資深前端工程師。任何合作機會歡迎{" "}
+                  <motion.a href="mailto:guychienll@gmail.com">信箱</motion.a>{" "}
+                  連絡我。
+                </Block>
 
-                <motion.div
-                  className="w-full skills"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                <Block
+                  id="skills"
+                  title="Skills"
+                  align="left"
+                  contentClassName="grid grid-cols-5 gap-4 w-full"
                 >
-                  <motion.div
-                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    Skills
-                  </motion.div>
-                  <motion.div
-                    className="grid grid-cols-5 gap-4 text-gray-200"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="vim"
-                        className="devicon-vim-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="typescript"
-                        className="devicon-typescript-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="react / react-native"
-                        className="devicon-react-original text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="sass"
-                        className="devicon-sass-original text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="tailwindcss"
-                        className="devicon-tailwindcss-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="babel"
-                        className="devicon-babel-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="postcss"
-                        className="devicon-postcss-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="webpack"
-                        className="devicon-webpack-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="storybook"
-                        className="devicon-storybook-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="jest"
-                        className="devicon-jest-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="playwright"
-                        className="devicon-playwright-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="nodejs"
-                        className="devicon-nodejs-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="git"
-                        className="devicon-git-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="docker"
-                        className="devicon-docker-plain text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <motion.i
-                        title="github actions"
-                        className="devicon-github-original text-2xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </div>
-                  </motion.div>
-                </motion.div>
+                  {SKILLS.map((skill) => {
+                    return (
+                      <div
+                        key={skill.title}
+                        className="flex items-center justify-center"
+                      >
+                        <motion.i
+                          title={skill.title}
+                          className={skill.icon}
+                          whileHover={{ opacity: 0.6 }}
+                        />
+                      </div>
+                    );
+                  })}
+                </Block>
 
-                <motion.div
-                  className="w-full social-links"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                <Block
+                  id="contact-me"
+                  title="Contact Me"
+                  align="left"
+                  contentClassName="grid grid-cols-5 gap-4 text-gray-200 w-full"
                 >
-                  <motion.div
-                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    Contact Me
-                  </motion.div>
-                  <motion.div
-                    className="grid grid-cols-5 gap-4 text-gray-200"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
+                  {SOCIAL_LINKS.map((link) => (
                     <motion.div
+                      key={link.title}
                       className="cursor-pointer flex items-center justify-center"
-                      onClick={() =>
-                        onClickSocialLink("https://github.com/guychienll")
-                      }
+                      onClick={() => onClickSocialLink(link.url)}
                     >
                       <motion.i
-                        title="github"
-                        className="devicon-github-original text-4xl"
+                        title={link.title}
+                        className={link.icon}
                         whileHover={{ opacity: 0.6 }}
                       />
                     </motion.div>
-                    <motion.div
-                      className="cursor-pointer flex items-center justify-center"
-                      onClick={() =>
-                        onClickSocialLink(
-                          "https://www.linkedin.com/in/guy-chien-0566b61b9/"
-                        )
-                      }
-                    >
-                      <motion.i
-                        title="linkedin"
-                        className="devicon-linkedin-plain text-4xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </motion.div>
-                    <motion.div
-                      className="cursor-pointer flex items-center justify-center"
-                      onClick={() =>
-                        onClickSocialLink("mailto:guychienll@gmail.com")
-                      }
-                    >
-                      <motion.i
-                        title="email"
-                        className="fa-regular fa-envelope text-4xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </motion.div>
-                    <motion.div
-                      className="cursor-pointer flex items-center justify-center"
-                      onClick={() =>
-                        onClickSocialLink("https://www.threads.net/@_chienli_")
-                      }
-                    >
-                      <motion.i
-                        title="threads"
-                        className="fa-brands fa-threads text-4xl"
-                        whileHover={{ opacity: 0.6 }}
-                      />
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
+                  ))}
+                </Block>
 
-                <motion.div
-                  className="w-full playing-now"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                <Block
+                  id="playing-now"
+                  title="Playing Now"
+                  contentClassName="w-full"
                 >
-                  <motion.div
-                    className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    Playing Now
-                  </motion.div>
-                  <motion.div
-                    initial={{ x: 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <motion.a href="https://open.spotify.com/user/11133280780">
+                  <motion.a href="https://open.spotify.com/user/11133280780">
+                    <motion.div className="relative">
+                      <motion.div className="absolute inset-0 bg-gradient-to-r from-[#101010] to-[#202020] animate-pulse rounded-lg w-full aspect-[720/200]" />
                       <motion.img
+                        width={200}
+                        height={200}
                         whileHover={{ opacity: 0.6 }}
                         src="https://guychienll.vercel.app/api/spotify"
                         alt="Spotify"
-                        className="w-full"
+                        className="w-full relative z-10"
+                        onLoad={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.previousElementSibling?.classList.add(
+                            "hidden"
+                          );
+                        }}
                       />
-                    </motion.a>
-                  </motion.div>
-                </motion.div>
+                    </motion.div>
+                  </motion.a>
+                </Block>
               </motion.div>
             </section>
             <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
-              <motion.div
-                className="w-full h-full flex flex-col rounded-lg gap-y-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+              <Block
+                id="posts"
+                title="Posts"
+                contentClassName="flex flex-col gap-y-2 w-full"
+                className="h-full"
               >
-                <motion.div
-                  className="text-gray-400 text-lg font-bold mb-2 text-left font-sriracha tracking-widest"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  Posts
-                </motion.div>
-                {posts
-                  .sort((a, b) => {
-                    return (
-                      new Date(b.date).getTime() - new Date(a.date).getTime()
-                    );
-                  })
-                  .slice(0, 5)
-                  .map((post) => {
-                    return (
-                      <motion.div
-                        className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer h-[130px]"
-                        onClick={() => {
-                          onClickPost(post.link);
-                        }}
-                        whileHover={{
-                          scale: 1.02,
-                          transition: {
-                            duration: 0.2,
-                            ease: "easeInOut",
-                          },
-                        }}
-                        whileTap={{
-                          scale: 0.98,
-                        }}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{
-                          opacity: 1,
-                          x: 0,
-                          transition: {
-                            duration: 0.5,
-                            delay: 0.1,
-                          },
-                        }}
-                      >
-                        <motion.div className="text-md text-gray-400 mb-2 font-bold">
-                          {post.title}
-                        </motion.div>
-                        <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
-                          {post.description}
-                        </motion.div>
-                        <div className="flex-1" />
-                        <motion.div className="text-xs text-gray-500 text-right">
-                          {post.date}
-                        </motion.div>
+                {POSTS.map((post) => {
+                  return (
+                    <motion.div
+                      key={post.title}
+                      className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer h-[130px]"
+                      onClick={() => {
+                        onClickPost(post.link);
+                      }}
+                      whileHover={{
+                        scale: 1.02,
+                        transition: {
+                          duration: 0.2,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      whileTap={{
+                        scale: 0.98,
+                      }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                          duration: 0.5,
+                          delay: 0.1,
+                        },
+                      }}
+                    >
+                      <motion.div className="text-md text-gray-400 mb-2 font-bold">
+                        {post.title}
                       </motion.div>
-                    );
-                  })}
-              </motion.div>
+                      <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
+                        {post.description}
+                      </motion.div>
+                      <div className="flex-1" />
+                      <motion.div className="text-xs text-gray-500 text-right">
+                        {post.date}
+                      </motion.div>
+                    </motion.div>
+                  );
+                })}
+                <motion.div
+                  className="flex justify-end mt-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.5 }}
+                >
+                  <motion.a
+                    href="/notes/category/vim"
+                    className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
+                    whileHover={{
+                      scale: 1.05,
+                      transition: {
+                        duration: 0.2,
+                        ease: "easeInOut",
+                      },
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+                  >
+                    see more
+                  </motion.a>
+                </motion.div>
+              </Block>
             </section>
             <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
-              <UnderConstructionSign />
+              <Block
+                id="portfolio"
+                title="Portfolio"
+                contentClassName="lg:flex lg:flex-col lg:gap-y-2 w-full grid sm:grid-cols-3 grid-cols-2 gap-2"
+                className="h-full"
+              >
+                {PROJECTS.map((project) => {
+                  return (
+                    <ProjectItem
+                      key={project.title}
+                      title={project.title}
+                      description={project.description}
+                      image={project.image}
+                      link={project.link}
+                    />
+                  );
+                })}
+              </Block>
             </section>
           </div>
         </main>
