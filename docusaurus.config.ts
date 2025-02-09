@@ -99,8 +99,7 @@ const config: Config = {
           label: "Notes",
         },
       ],
-    },
-    // footer: {
+    }, // footer: {
     //   style: "dark",
     //   links: [
     //     {
@@ -139,7 +138,20 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
 
-  plugins: [require.resolve("./plugins/index.js")],
+  plugins: [
+    require.resolve("./plugins/index.js"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/notes/webpack/tree-shaking",
+            from: "/docs/web/webpack/tree-shaking",
+          },
+        ],
+      },
+    ],
+  ],
 };
 
 export default config;
