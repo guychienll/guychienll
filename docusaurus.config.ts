@@ -40,6 +40,7 @@ const config: Config = {
           path: "notes",
           routeBasePath: "notes",
           breadcrumbs: true,
+          sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -67,7 +68,7 @@ const config: Config = {
           lastmod: "date",
           changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ["/tags/**"],
+          ignorePatterns: ["/tags/**", "/notes/tag/**", "/notes/category/**"],
           filename: "sitemap.xml",
           createSitemapItems: async (params) => {
             const { defaultCreateSitemapItems, ...rest } = params;
