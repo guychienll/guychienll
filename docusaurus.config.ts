@@ -40,11 +40,6 @@ const config: Config = {
           path: "notes",
           routeBasePath: "notes",
           breadcrumbs: true,
-          sidebarCollapsible: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
@@ -60,6 +55,10 @@ const config: Config = {
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
+        },
+        gtag: {
+          trackingID: "G-9EW89P0PM2",
+          anonymizeIP: true,
         },
         theme: {
           customCss: "./src/css/custom.css",
