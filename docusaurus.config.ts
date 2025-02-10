@@ -39,7 +39,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           path: "notes",
           routeBasePath: "notes",
-          breadcrumbs: true,
+          breadcrumbs: false,
         },
         blog: {
           showReadingTime: true,
