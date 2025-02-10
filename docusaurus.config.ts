@@ -160,6 +160,18 @@ const config: Config = {
             to: "/notes/webpack/tree-shaking",
             from: "/docs/web/webpack/tree-shaking",
           },
+          {
+            to: "/notes/vim",
+            from: "/docs/vim/vim",
+          },
+          {
+            to: "/notes/vim/jetbrains",
+            from: "/docs/vim/vim-jetbrains",
+          },
+          {
+            to: "/notes/vim/vscode",
+            from: "/docs/vim/vim-vscode",
+          },
         ],
       },
     ],
