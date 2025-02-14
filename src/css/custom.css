@@ -42,7 +42,7 @@
 ol,
 ul,
 menu {
-  list-style: trad-chinese-formal;
+  list-style: auto;
 }
 
 .navbar__title {

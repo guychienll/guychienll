@@ -179,6 +179,10 @@ const config: Config = {
             to: "/notes/react/reconciliation",
             from: "/docs/web/react/reconciliation",
           },
+          {
+            to: "/notes/javascript/event-loop",
+            from: "/docs/web/javascript/event-loop",
+          },
         ],
       },
     ],
