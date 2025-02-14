@@ -1,0 +1,308 @@
+---
+title: 'React Reconciliation'
+description: 什麼是 React Reconciliation ?
+tags: [Node, Npm, JavaScript, React, Reconciliation]
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 什麼是 Reconciliation
+
+Reconciliation 是 React 中一個重要的概念，它是 React 用來決定是否要更新 DOM 的演算法。
+其中 React 做兩個假設促使演算法複雜度由 `O(n^3)` 降低到 `O(n)`。
+
+1. 兩個不同的 `type` 的元件產生不同的樹狀結構
+2. 開發者可以透過 `key` 來提示哪些子元件是否被重複使用
+
+但是什麼是 `type` ? 什麼是 `key` ? 這些都是我們在開發 React 時會遇到的問題，接下來會一一介紹。
+
+### Type
+
+在 React 中，我們可以透過 `React.createElement` 來建立一個元件，其中第一個參數就是 `type`。
+
+```jsx
+console.log(React.createElement('div'));
+```
+
+或是常使用 JSX Syntax
+
+```jsx
+console.log(<div />);
+```
+
+皆會印出下述結果
+
+```json
+{
+    "type": "div",
+    "key": null,
+    "ref": null,
+    "props": {},
+    "_owner": null,
+    "_store": {}
+}
+```
+
+而此輸出中的 type 就是我們所說的 `type`。
+
+:::info
+type 不但可以是一個字串  
+同時也可以是一個 function  
+但是 function 必須要回傳一個 React Element  
+符合 React Component 的定義。
+
+```jsx
+function CustomComponent() {
+    return <div />;
+}
+console.log(React.createElement(CustomComponent));
+```
+
+```jsx
+function CustomComponent() {
+    return <div />;
+}
+```
+
+```json
+{
+    "type": ƒ CustomComponent(),
+    "key": null,
+    "ref": null,
+    "props": {},
+    "_owner": null,
+    "_store": {}
+}
+```
+
+:::
+
+### Key
+
+在 React 中，我們可以透過 `key` 來提示哪些子元件是否被重複使用，這樣 React 就可以知道哪些子元件需要被更新，刪除，新增。
+
+```jsx
+const element = (
+    <ul>
+        <li key="1">1</li>
+        <li key="2">2</li>
+        <li key="3">3</li>
+    </ul>
+);
+
+console.log(element.props.children[0]);
+```
+
+可看見其中的 key，也就是我們所說的 `key`。
+
+```json
+{
+    "type": "li",
+    "key": "1",
+    "ref": null,
+    "props": {
+        "children": "1"
+    },
+    "_owner": null,
+    "_store": {}
+}
+```
+
+:::danger
+這裡有一項剛接觸 React 時會犯的錯誤  
+就是將 `key` 視為一個 prop，但是 `key` 並不是一個 prop  
+而是一個特殊的屬性，並且不會被傳遞到子元件當中
+:::
+
+## Reconciliation 如何運作
+
+在比較更新前後差異時  
+React 會先比較兩個元件的 `type` 是否相同  
+如果不同的話，React 會直接刪除舊的元件，並且建立新的元件
+也就代表所以原先在 Component 中的 state 都會被重置
+
+:::caution
+需要注意的是 type  
+因為可以放入 function  
+所以 React 會先比較 function 是否相同  
+要注意的是 `compare by reference`  
+因此請盡可能避免 nested component 的發生  
+盡可能將 component 宣告在最定層
+:::
+
+再來 React 會比較兩個元件的 `key` 是否相同
+
+-   如果相同的話，React 會保留舊的元件，並且更新 props
+-   如果不同的話，React 會刪除舊的元件，並且建立新的元件
+
+## 常見開發問題
+
+### 在 Render List 時，使用 index 當作 key
+
+<Tabs>
+    <TabItem value="index" label="使用 index 當作 key">
+```jsx live noInline 
+function uuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);});
+}
+
+const styles = {
+    container: "flex flex-col gap-4 p-4 min-h-[250px]",
+    addButton: "bg-blue-500 hover:bg-blue-600 text-white p-2 rounded w-fit transition-colors",
+    listContainer: "flex flex-col gap-2",
+    itemContainer: "flex items-center gap-2",
+    input: "border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500",
+    removeButton: "bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded transition-colors"
+};
+
+function DynamicForm() {
+    const [values, setValues] = React.useState([]);
+
+
+    const addRow = () => {
+        const id = uuid();
+        setValues((prev) => [
+            ...prev,
+            {
+                id: id,
+            },
+        ]);
+    };
+
+    const removeRow = (index) => {
+        setValues((prev) => {
+            const valuesExcludeRemoved = prev.filter(
+                (_v, idx) => idx !== index
+            );
+            return valuesExcludeRemoved;
+        });
+    };
+
+    return (
+        <div className={styles.container}>
+            <button className={styles.addButton} onClick={addRow}>點我新增欄位</button>
+            <div className={styles.listContainer}>
+                {values.map((item, index) => {
+                    return (
+                        <div className={styles.itemContainer} key={index}>
+                            <input 
+                                type="text" 
+                                value={item.name}
+                                className={styles.input}
+                            />
+                            <button
+                                className={styles.removeButton}
+                                onClick={() => {
+                                    removeRow(index);
+                                }}
+                            >
+                                刪除欄位
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+render(<DynamicForm />);
+```
+    </TabItem>
+    <TabItem value="unique id" label="使用 unique id 當作 key">
+```jsx live 
+function uuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);});
+}
+
+const styles = {
+    container: "flex flex-col gap-4 p-4 min-h-[250px]",
+    addButton: "bg-blue-500 hover:bg-blue-600 text-white p-2 rounded w-fit transition-colors",
+    listContainer: "flex flex-col gap-2",
+    itemContainer: "flex items-center gap-2",
+    input: "border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500",
+    removeButton: "bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded transition-colors"
+};
+
+function DynamicForm() {
+    const [values, setValues] = React.useState([]);
+
+
+    const addRow = () => {
+        const id = uuid();
+        setValues((prev) => [
+            ...prev,
+            {
+                id: id,
+            },
+        ]);
+    };
+
+    const removeRow = (index) => {
+        setValues((prev) => {
+            const valuesExcludeRemoved = prev.filter(
+                (_v, idx) => idx !== index
+            );
+            return valuesExcludeRemoved;
+        });
+    };
+
+    return (
+        <div className={styles.container}>
+            <button className={styles.addButton} onClick={addRow}>點我新增欄位</button>
+            <div className={styles.listContainer}>
+                {values.map((item, index) => {
+                    return (
+                        <div className={styles.itemContainer} key={item.id}>
+                            <input 
+                                type="text" 
+                                value={item.name}
+                                className={styles.input}
+                            />
+                            <button
+                                className={styles.removeButton}
+                                onClick={() => {
+                                    removeRow(index);
+                                }}
+                            >
+                                刪除欄位
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+render(<DynamicForm />);
+```
+
+    </TabItem>
+</Tabs>
+
+#### 重現步驟
+
+1. 新增 3 個 input 後
+2. 針對第一個 input 輸入資訊
+3. 並且刪除第一個 input
+
+會發現第一個 input 的資訊會被保留<br/>
+使用 index 當作 key 時，會發生 input state 重新使用的問題<br/>
+原因是因為 type 相同並且 key 相同，React 就會認為是同一個元件<br/>
+可以嘗試將 key 改為 unique id，就可以解決這個問題
+
+```jsx title="使用 index 當作 key"
+<div className="item" key={index}>
+```
+
+```jsx title="使用 unique id 當作 key"
+<div className="item" key={item.id}>
+```
+
+## Reference
+
+-   [React Reconciliation](https://reactjs.org/docs/reconciliation.html)
+-   [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)

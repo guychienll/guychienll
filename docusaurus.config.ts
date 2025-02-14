@@ -148,6 +148,9 @@ const config: Config = {
       theme: prismThemes.gruvboxMaterialDark,
       darkTheme: prismThemes.gruvboxMaterialDark,
     },
+    liveCodeBlock: {
+      playgroundPosition: "bottom",
+    },
   } satisfies Preset.ThemeConfig,
 
   plugins: [
@@ -172,9 +175,14 @@ const config: Config = {
             to: "/notes/vim/vscode",
             from: "/docs/vim/vim-vscode",
           },
+          {
+            to: "/notes/react/reconciliation",
+            from: "/docs/web/react/reconciliation",
+          },
         ],
       },
     ],
+    "@docusaurus/theme-live-codeblock",
   ],
 };
 
