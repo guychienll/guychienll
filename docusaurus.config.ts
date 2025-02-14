@@ -99,10 +99,10 @@ const config: Config = {
      */
     navbar: {
       title: "guychienll",
-      // logo: {
-      //   alt: "",
-      //   src: "img/favicon.ico",
-      // },
+      logo: {
+        alt: "logo",
+        src: "img/notes.png",
+      },
       items: [
         {
           type: "docSidebar",
