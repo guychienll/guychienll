@@ -16,6 +16,15 @@
   --font-zen-maru-gothic: "Zen Maru Gothic", sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #4caf50;
@@ -88,3 +97,4 @@ menu {
   display: flex;
   flex-direction: row;
 }
+

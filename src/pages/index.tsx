@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import Block from "../components/Block";
 import "./index.css";
+import clsx from "clsx";
 
 const SOCIAL_LINKS = [
   {
@@ -138,9 +139,16 @@ interface ProjectItemProps {
   description: string;
   image: string;
   link: string;
+  imageClassName?: string;
 }
 
-function ProjectItem({ title, description, image, link }: ProjectItemProps) {
+function ProjectItem({
+  title,
+  description,
+  image,
+  link,
+  imageClassName,
+}: ProjectItemProps) {
   const onClickProjectItem = () => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
@@ -148,12 +156,17 @@ function ProjectItem({ title, description, image, link }: ProjectItemProps) {
   return (
     <motion.div
       title={`${title} - ${description}`}
-      className="relative w-full aspect-[16/9] rounded-lg overflow-hidden box-border group cursor-pointer"
+      className={clsx(
+        "relative w-full aspect-[16/9] clip-path-inset-0-round-8px rounded-lg overflow-hidden box-border group cursor-pointer bg-contain bg-center bg-no-repeat bg-white"
+      )}
+      style={{
+        backgroundImage: `url(${image})`,
+      }}
       whileHover={{
         scale: 1.02,
         transition: {
           duration: 0.2,
-          ease: "easeInOut", 
+          ease: "easeInOut",
         },
       }}
       whileTap={{
@@ -165,21 +178,12 @@ function ProjectItem({ title, description, image, link }: ProjectItemProps) {
       }}
       onClick={onClickProjectItem}
     >
-      <motion.img
-        width={1600}
-        height={900}
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover"
-      />
-      <motion.div 
-        className="absolute inset-0 backdrop-blur-sm bg-black/30 opacity-0 group-hover:opacity-100 active:opacity-100 transition-all duration-300 flex items-center justify-center"
-      >
+      <motion.div className="absolute inset-0 backdrop-blur-sm rounded-lg bg-black/30 opacity-0 group-hover:opacity-100 active:opacity-100 transition-all duration-300 flex items-center justify-center">
         <motion.div className="flex flex-col items-center">
           <motion.div className="text-white text-center px-4 font-zen-maru-gothic">
             {title}
           </motion.div>
-          <motion.div className="text-white text-center px-4 font-zen-maru-gothic line-clamp-2">
+          <motion.div className="text-white text-center px-4 font-zen-maru-gothic line-clamp-2 select-none">
             {description}
           </motion.div>
         </motion.div>
@@ -190,38 +194,60 @@ function ProjectItem({ title, description, image, link }: ProjectItemProps) {
 
 const PROJECTS = [
   {
-    title: "幫農事 | ifarmer",
-    description: "為直接跟農夫買內部運作管理系統，便於農夫管理訂單、產品、物流",
-    image: "/img/media/ifarmer-16-9.jpg",
-    link: "https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148",
+    title: "嘉禮富裕 | 嘉禮建設",
+    description: "嘉禮富裕建案官網，提供建案介紹、規劃、諮詢表單。",
+    image: "/img/media/chia-li-fu-yu-16-9.gif",
+    link: "https://chia-li-fu-yu.vercel.app/",
+    created: "2023-10-30",
+    imageClassName: "bg-[#ffffff]",
   },
   {
     title: "葛林美斯家具 | Glimax",
     description:
-      "葛林美斯家具品牌官網，全站包含搜尋、會員、產品列表篩選分頁，並提供顧客線上諮詢表單寄送",
+      "葛林美斯家具品牌官網，全站包含搜尋、產品列表篩選分頁，並提供顧客線上諮詢表單寄送",
     image: "/img/media/glimax-16-9.png",
     link: "https://oa7-11.web.app/",
+    created: "2022-07-02",
+    imageClassName: "bg-[#ffffff] p-4",
   },
   {
     title: "fake line message generator",
     description: "生成假 Line 訊息，協助行銷人員推廣產品。",
-    image: "/img/media/flmg-16-9.png",
+    image: "/img/media/flmg-16-9.gif",
     link: "https://flmg.guychienll.dev",
+    created: "2024-02-15",
+    imageClassName: "bg-[#ffffff]",
   },
   {
     title: "Pull Request Platform",
     description:
       "Pull Request 平台，協助團隊成員管理跨 Repository Pull Request",
-    image: "/img/media/prp-16-9.png",
+    image: "/img/media/prp-16-9.gif",
     link: "https://pr.guychienll.dev",
+    created: "2024-10-11",
+    imageClassName: "bg-[#ffffff] p-2",
   },
   {
     title: ".vim",
     description: "個人 Vim 配置，包含 Vim 生態系 plugins / 自訂快捷鍵",
     image: "/img/media/vim-16-9.png",
     link: "https://github.com/guychienll/.vim",
+    created: "2020-12-18",
+    imageClassName: "bg-[#ffffff]",
   },
-] as const;
+  {
+    title: "幫農事 | ifarmer",
+    description: "為直接跟農夫買內部運作管理系統，便於農夫管理訂單、產品、物流",
+    image: "/img/media/ifarmer-16-9.jpg",
+    link: "https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148",
+    created: "2020-02-14",
+    imageClassName: "bg-[#ffffff]",
+  },
+]
+  .sort((a, b) => {
+    return new Date(b.created).getTime() - new Date(a.created).getTime();
+  })
+  .slice(0, 5);
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -352,7 +378,7 @@ export default function Home(): ReactNode {
                 </Block>
               </motion.div>
             </section>
-            <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
+            <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center">
               <Block
                 id="posts"
                 title="Posts"
@@ -400,32 +426,32 @@ export default function Home(): ReactNode {
                     </motion.div>
                   );
                 })}
-                <motion.div
-                  className="flex justify-end mt-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.5 }}
-                >
-                  <motion.a
-                    href="/notes/category/vim"
-                    className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
-                    whileHover={{
-                      scale: 1.05,
-                      transition: {
-                        duration: 0.2,
-                        ease: "easeInOut",
-                      },
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                  >
-                    see more
-                  </motion.a>
-                </motion.div>
               </Block>
+              <motion.div
+                className="flex self-end mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+              >
+                <motion.a
+                  href="/notes/category/vim"
+                  className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: {
+                      duration: 0.2,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                >
+                  see more
+                </motion.a>
+              </motion.div>
             </section>
-            <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex items-center justify-center">
+            <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center">
               <Block
                 id="portfolio"
                 title="Portfolio"
@@ -440,6 +466,7 @@ export default function Home(): ReactNode {
                       description={project.description}
                       image={project.image}
                       link={project.link}
+                      imageClassName={project.imageClassName}
                     />
                   );
                 })}
