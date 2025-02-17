@@ -264,7 +264,7 @@ export default function Home(): ReactNode {
     <div id="home-page">
       <Layout title="Home" description={siteConfig.tagline}>
         <main className="grid lg:h-screen mx-auto w-full max-w-[1024px] lg:place-items-center">
-          <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] w-full p-4">
+          <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] min-h-[850px] w-full p-4">
             <section className="p-2 customize-navbar col-span-12 flex items-center justify-between row-span-1 flex-wrap">
               <div className="font-permanent-marker text-2xl tracking-[0.2em] uppercase">
                 guychienll
