@@ -55,9 +55,12 @@ body {
 }
 
 ol,
-ul,
 menu {
   list-style: auto;
+}
+
+ul {
+  list-style: disc;
 }
 
 .navbar__title {

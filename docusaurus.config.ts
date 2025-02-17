@@ -187,6 +187,15 @@ const config: Config = {
       },
     ],
     "@docusaurus/theme-live-codeblock",
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        id: "portfolio",
+        path: "./portfolio",
+        routeBasePath: "portfolio",
+        onUntruncatedBlogPosts: "ignore",
+      },
+    ],
   ],
 };
 

@@ -150,7 +150,11 @@ function ProjectItem({
   imageClassName,
 }: ProjectItemProps) {
   const onClickProjectItem = () => {
-    window.open(link, "_blank", "noopener,noreferrer");
+    if (link.startsWith("/portfolio/")) {
+      window.location.href = link;
+    } else {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
@@ -214,7 +218,7 @@ const PROJECTS = [
     title: "fake line message generator",
     description: "生成假 Line 訊息，協助行銷人員推廣產品。",
     image: "/img/media/flmg-16-9.gif",
-    link: "https://flmg.guychienll.dev",
+    link: "/portfolio/flmg",
     created: "2024-02-15",
     imageClassName: "bg-[#ffffff]",
   },
