@@ -174,7 +174,7 @@ const PROJECTS = [
     description:
       "Pull Request 平台，協助團隊成員管理跨 Repository Pull Request",
     image: "/img/media/prp-16-9.gif",
-    link: "https://pr.guychienll.dev",
+    link: "/portfolio/prp",
     created: "2024-10-11",
     imageClassName: "bg-[#ffffff] p-2",
     categories: [

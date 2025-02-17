@@ -31,7 +31,9 @@ const Button: React.FC<ButtonProps> = ({
       )}
       {...props}
     >
-      {children}
+      {typeof children === "string"
+        ? children.toUpperCase().trim()
+        : children}
     </button>
   );
 };
