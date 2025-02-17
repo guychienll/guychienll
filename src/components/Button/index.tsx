@@ -1,5 +1,5 @@
-import React from "react";
 import clsx from "clsx";
+import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
@@ -17,11 +17,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={clsx(
-        "font-sriracha tracking-wider rounded-lg transition-colors cursor-pointer",
+        "font-zen-maru-gothic tracking-wider rounded-lg transition-colors cursor-pointer border-2 border-transparent",
         {
           "bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white":
             variant === "primary",
-          "bg-transparent border-2 border-[var(--ifm-color-primary)] text-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary)] hover:text-white":
+          "bg-transparent !border-[var(--ifm-color-primary)] text-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary)] hover:text-white":
             variant === "secondary",
           "px-3 py-1 text-sm": size === "sm",
           "px-4 py-2 text-base": size === "md",
