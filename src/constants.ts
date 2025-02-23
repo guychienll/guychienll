@@ -37,6 +37,7 @@ const NOTES = Object.values(notes)
     description: note.description,
     link: `/notes/${note.path}`,
     date: note.created,
+    tags: note.tags,
   }))
   .sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -180,4 +181,3 @@ const PROJECTS = [
 });
 
 export { NOTES, ProjectCategory, PROJECTS, SKILLS, SOCIAL_LINKS };
-

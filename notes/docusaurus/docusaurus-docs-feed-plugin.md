@@ -2,8 +2,8 @@
 id: docusaurus-docs-feed-plugin
 title: Docusaurus Docs Feed Plugin
 description: 使用 docusaurus-docs-feed-plugin 生成文件的 Feeds，讓使用者可以看到最新的文章內容
-tags: [Docusaurus, Plugin, Feed, Docs]
-keywords: [Docusaurus, Plugin, Feed, Docs]
+tags: [docusaurus,plugin,feed,docs]
+keywords: [docusaurus,plugin,feed,docs]
 created: '2025-02-23'
 ---
 

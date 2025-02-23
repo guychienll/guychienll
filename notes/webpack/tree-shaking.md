@@ -3,30 +3,8 @@ id: tree-shaking
 title: Tree Shaking
 description: 使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking
 created: '2023-12-10'
-keywords: [
-    'webpack',
-    'javascript', 
-    'tree shaking',
-    'babel',
-    'amd',
-    'umd',
-    'systemjs',
-    'commonjs',
-    'modules',
-    'esm'
-]
-tags: [
-    'webpack',
-    'javascript',
-    'tree shaking', 
-    'babel',
-    'esm',
-    'amd',
-    'umd',
-    'systemjs',
-    'commonjs',
-    'modules'
-]
+keywords: ['webpack','javascript','tree shaking','babel','amd','umd','systemjs','commonjs','modules','esm']
+tags: ['webpack','javascript','tree shaking','babel','esm','amd','umd','systemjs','commonjs','modules']
 ---
 
 

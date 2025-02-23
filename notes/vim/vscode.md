@@ -3,8 +3,8 @@ id: vscode
 sidebar_position: 2
 title: VSCode 配置推薦
 description: 介紹 VSCode 的配置推薦，包含 Vim 配置、Easymotion 配置、Refactor 配置
-tags: [VSCode, Vim, IDE, VSCode, VSCode Vim, VSCode Refactor, VSCode Easymotion]
-keywords: [VSCode, Vim, IDE, VSCode, VSCode Vim, VSCode Refactor, VSCode Easymotion]
+tags: [vscode,vim,ide,refactor,easymotion]
+keywords: [vscode,vim,ide,refactor,easymotion]
 created: '2024-04-09'
 ---
 

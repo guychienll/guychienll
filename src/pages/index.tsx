@@ -4,6 +4,7 @@ import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import Block from "../components/Block";
+import NoteItem from "../components/NoteItem";
 import ProjectItem from "../components/ProjectItem";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
@@ -13,10 +14,6 @@ export default function Home(): ReactNode {
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  const onClickNote = (link: string) => {
-    window.location.href = link;
   };
 
   return (
@@ -144,47 +141,9 @@ export default function Home(): ReactNode {
                 contentClassName="flex flex-col gap-y-2 w-full"
                 className="h-full"
               >
-                {NOTES.map((note) => {
-                  return (
-                    <motion.div
-                      key={note.title}
-                      className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer h-[130px]"
-                      onClick={() => {
-                        onClickNote(note.link);
-                      }}
-                      whileHover={{
-                        scale: 1.02,
-                        transition: {
-                          duration: 0.2,
-                          ease: "easeInOut",
-                        },
-                      }}
-                      whileTap={{
-                        scale: 0.98,
-                      }}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                          duration: 0.5,
-                          delay: 0.1,
-                        },
-                      }}
-                    >
-                      <motion.div className="text-md text-gray-400 mb-2 font-bold">
-                        {note.title}
-                      </motion.div>
-                      <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
-                        {note.description}
-                      </motion.div>
-                      <div className="flex-1" />
-                      <motion.div className="text-xs text-gray-500 text-right">
-                        {note.date}
-                      </motion.div>
-                    </motion.div>
-                  );
-                })}
+                {NOTES.map((note, index) => (
+                  <NoteItem key={index} note={note} />
+                ))}
               </Block>
               <motion.div
                 className="flex self-end mt-4"

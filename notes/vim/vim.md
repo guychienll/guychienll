@@ -4,8 +4,8 @@ title: Vim Basics
 description: Vim 基礎介紹，學習曲線、模式切換、編輯動作、導航動作、命令
 sidebar_position: 1
 created: '2024-04-09'
-tags: [Vim, Vim Basics, Vim Learning Curve, Vim Mode, Vim Commands, Vim Navigation, Vim Editing]
-keywords: [Vim, Vim Basics, Vim Learning Curve, Vim Mode, Vim Commands, Vim Navigation, Vim Editing]
+tags: [vim, basics, learning-curve, mode, commands, navigation, editing]
+keywords: [vim, basics, learning-curve, mode, commands, navigation, editing]
 ---
 
 

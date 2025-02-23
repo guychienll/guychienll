@@ -2,8 +2,8 @@
 id: jetbrains
 title: JetBrains 配置推薦
 description: 介紹 JetBrains IDE 的配置推薦，包含 Vim 配置、Easymotion 配置、Refactor 配置
-tags: [JetBrains, Vim, IDE, IDEA, WebStorm, PyCharm, RubyMine, PhpStorm, AppCode, CLion, DataGrip, GoLand, Rider, Android Studio, WebStorm, PyCharm, RubyMine, PhpStorm, AppCode, CLion, DataGrip, GoLand, Rider, Android Studio]
-keywords: [JetBrains, Vim, IDE, IDEA, WebStorm, PyCharm, RubyMine, PhpStorm, AppCode, CLion, DataGrip, GoLand, Rider, Android Studio, WebStorm, PyCharm, RubyMine, PhpStorm, AppCode, CLion, DataGrip, GoLand, Rider, Android Studio]
+tags: [jetbrains, vim, ide, idea, webstorm, pycharm, rubymine, phpstorm, appcode, clion, datagrip, goland, rider, androidstudio]
+keywords: [jetbrains, vim, ide, idea, webstorm, pycharm, rubymine, phpstorm, appcode, clion, datagrip, goland, rider, androidstudio]
 created: '2024-04-09'
 sidebar_position: 3
 ---

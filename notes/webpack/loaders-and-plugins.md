@@ -2,26 +2,8 @@
 id: loaders-and-plugins
 title: Loaders & Plugins
 description: Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。
-keywords: [
-    'webpack',
-    'javascript', 
-    'loader',
-    'css-loader',
-    'style-loader',
-    'postcss-loader',
-    'mini-css-extract-plugin',
-    'babel'
-]
-tags: [
-    'webpack',
-    'javascript',
-    'loader', 
-    'css-loader',
-    'style-loader',
-    'postcss-loader',
-    'mini-css-extract-plugin',
-    'babel'
-]
+keywords: ['webpack','javascript','loader','css-loader','style-loader','postcss-loader','mini-css-extract-plugin','babel']
+tags: ['webpack','javascript','loader','css-loader','style-loader','postcss-loader','mini-css-extract-plugin','babel']
 created: '2023-12-10'
 modified: '2023-12-10'
 ---

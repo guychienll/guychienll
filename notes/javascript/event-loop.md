@@ -2,8 +2,8 @@
 id: event-loop
 title: "Event Loop"
 description: 介紹 JavaScript 的 Event Loop，以及其運作原理，並且介紹其運作順序，以及經典面試題
-tags: [Node, Npm, JavaScript, Event Loop]
-keywords: [Node, Npm, JavaScript, Event Loop]
+tags: [node,npm,javascript,event-loop]
+keywords: [node,npm,javascript,event-loop]
 created: '2023-12-01'
 ---
 
