@@ -112,7 +112,7 @@ const PROJECTS = [
     title: "嘉禮富裕 | 嘉禮建設",
     description: "嘉禮富裕建案官網，提供建案介紹、規劃、諮詢表單。",
     image: "/img/media/chia-li-fu-yu-16-9.gif",
-    link: "https://chia-li-fu-yu.vercel.app/",
+    link: "https://chia-li-fu-yu.guychienll.dev/",
     created: "2023-10-30",
     imageClassName: "bg-[#ffffff]",
     categories: [
