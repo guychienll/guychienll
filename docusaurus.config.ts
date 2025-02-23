@@ -164,7 +164,7 @@ const config: Config = {
             from: "/docs/web/webpack/tree-shaking",
           },
           {
-            to: "/notes/webpack/loaders-n-plugins",
+            to: "/notes/webpack/loaders-and-plugins",
             from: ["/notes/webpack/loaders", "/docs/web/webpack/loaders"],
           },
           {
