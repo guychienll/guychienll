@@ -4,7 +4,9 @@ title: Docusaurus Docs Feed Plugin
 description: 使用 docusaurus-docs-feed-plugin 生成文件的 Feeds，讓使用者可以看到最新的文章內容
 tags: [docusaurus,plugin,feed,docs]
 keywords: [docusaurus,plugin,feed,docs]
+image: ./img/docusaurus-docs-feed-plugin.png
 created: '2025-02-23'
+modified: '2025-02-23'
 ---
 
 # Docusaurus Docs Feed Plugin

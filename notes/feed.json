@@ -15,7 +15,9 @@
       "feed",
       "docs"
     ],
+    "image": "./img/docusaurus-docs-feed-plugin.png",
     "created": "Sun Feb 23 2025",
+    "modified": "2025-02-23",
     "path": "docusaurus/docusaurus-docs-feed-plugin",
     "draft": false,
     "fileName": "docusaurus-docs-feed-plugin.md"
