@@ -1,7 +1,10 @@
 ---
+id: event-loop
 title: "Event Loop"
-description: What is event loop in JavaScript ?
+description: 介紹 JavaScript 的 Event Loop，以及其運作原理，並且介紹其運作順序，以及經典面試題
 tags: [Node, Npm, JavaScript, Event Loop]
+keywords: [Node, Npm, JavaScript, Event Loop]
+created: '2023-12-01'
 ---
 
 ## 單線程 | Single Thread

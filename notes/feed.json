@@ -1,0 +1,226 @@
+{
+  "4a12f3c0-86c8-4c73-bb22-f696b42037b4": {
+    "id": "event-loop",
+    "title": "Event Loop",
+    "description": "介紹 JavaScript 的 Event Loop，以及其運作原理，並且介紹其運作順序，以及經典面試題",
+    "tags": [
+      "Node",
+      "Npm",
+      "JavaScript",
+      "Event Loop"
+    ],
+    "keywords": [
+      "Node",
+      "Npm",
+      "JavaScript",
+      "Event Loop"
+    ],
+    "created": "Fri Dec 01 2023",
+    "path": "javascript/event-loop",
+    "draft": false,
+    "fileName": "event-loop.md"
+  },
+  "f38fb8a9-5bd8-4c85-b05e-c332ab7fb6bc": {
+    "id": "jotai",
+    "title": "Jotai",
+    "description": "Jotai Notes",
+    "sidebar_position": 1,
+    "draft": true,
+    "created": "Sun Feb 23 2025",
+    "tags": [
+      "Jotai",
+      "State Management",
+      "React",
+      "JavaScript"
+    ],
+    "keywords": [
+      "Jotai",
+      "State Management",
+      "React",
+      "JavaScript"
+    ],
+    "path": "state-management/jotai",
+    "fileName": "jotai.md"
+  },
+  "e510b3ae-9ed6-4d22-9267-0438063cee72": {
+    "id": "jetbrains",
+    "title": "JetBrains 配置推薦",
+    "description": "介紹 JetBrains IDE 的配置推薦，包含 Vim 配置、Easymotion 配置、Refactor 配置",
+    "tags": [
+      "JetBrains",
+      "Vim",
+      "IDE",
+      "IDEA",
+      "WebStorm",
+      "PyCharm",
+      "RubyMine",
+      "PhpStorm",
+      "AppCode",
+      "CLion",
+      "DataGrip",
+      "GoLand",
+      "Rider",
+      "Android Studio",
+      "WebStorm",
+      "PyCharm",
+      "RubyMine",
+      "PhpStorm",
+      "AppCode",
+      "CLion",
+      "DataGrip",
+      "GoLand",
+      "Rider",
+      "Android Studio"
+    ],
+    "keywords": [
+      "JetBrains",
+      "Vim",
+      "IDE",
+      "IDEA",
+      "WebStorm",
+      "PyCharm",
+      "RubyMine",
+      "PhpStorm",
+      "AppCode",
+      "CLion",
+      "DataGrip",
+      "GoLand",
+      "Rider",
+      "Android Studio",
+      "WebStorm",
+      "PyCharm",
+      "RubyMine",
+      "PhpStorm",
+      "AppCode",
+      "CLion",
+      "DataGrip",
+      "GoLand",
+      "Rider",
+      "Android Studio"
+    ],
+    "created": "Tue Apr 09 2024",
+    "sidebar_position": 3,
+    "path": "vim/jetbrains",
+    "draft": false,
+    "fileName": "jetbrains.md"
+  },
+  "94c1ef7f-1118-4096-aa99-0dd06ae39707": {
+    "id": "vim",
+    "title": "Vim Basics",
+    "description": "Vim 基礎介紹，學習曲線、模式切換、編輯動作、導航動作、命令",
+    "sidebar_position": 1,
+    "created": "Tue Apr 09 2024",
+    "tags": [
+      "Vim",
+      "Vim Basics",
+      "Vim Learning Curve",
+      "Vim Mode",
+      "Vim Commands",
+      "Vim Navigation",
+      "Vim Editing"
+    ],
+    "keywords": [
+      "Vim",
+      "Vim Basics",
+      "Vim Learning Curve",
+      "Vim Mode",
+      "Vim Commands",
+      "Vim Navigation",
+      "Vim Editing"
+    ],
+    "path": "vim/vim",
+    "draft": false,
+    "fileName": "vim.md"
+  },
+  "0a332bec-b8b1-4b85-8a6e-91e964bd6272": {
+    "id": "vscode",
+    "sidebar_position": 2,
+    "title": "VSCode 配置推薦",
+    "description": "介紹 VSCode 的配置推薦，包含 Vim 配置、Easymotion 配置、Refactor 配置",
+    "tags": [
+      "VSCode",
+      "Vim",
+      "IDE",
+      "VSCode",
+      "VSCode Vim",
+      "VSCode Refactor",
+      "VSCode Easymotion"
+    ],
+    "keywords": [
+      "VSCode",
+      "Vim",
+      "IDE",
+      "VSCode",
+      "VSCode Vim",
+      "VSCode Refactor",
+      "VSCode Easymotion"
+    ],
+    "created": "Tue Apr 09 2024",
+    "path": "vim/vscode",
+    "draft": false,
+    "fileName": "vscode.md"
+  },
+  "5a852f4d-d605-47f1-9557-27bc137f79c3": {
+    "id": "loaders-and-plugins",
+    "title": "Loaders & Plugins",
+    "description": "Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。",
+    "keywords": [
+      "webpack",
+      "javascript",
+      "loader",
+      "css-loader",
+      "style-loader",
+      "postcss-loader",
+      "mini-css-extract-plugin",
+      "babel"
+    ],
+    "tags": [
+      "webpack",
+      "javascript",
+      "loader",
+      "css-loader",
+      "style-loader",
+      "postcss-loader",
+      "mini-css-extract-plugin",
+      "babel"
+    ],
+    "created": "Sun Dec 10 2023",
+    "modified": "2023-12-10",
+    "path": "webpack/loaders-and-plugins",
+    "draft": false,
+    "fileName": "loaders-and-plugins.md"
+  },
+  "29256839-4874-42e8-abb6-22ebafd00c10": {
+    "id": "tree-shaking",
+    "title": "Tree Shaking",
+    "description": "使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking",
+    "created": "Sun Dec 10 2023",
+    "keywords": [
+      "webpack",
+      "javascript",
+      "tree shaking",
+      "babel",
+      "amd",
+      "umd",
+      "systemjs",
+      "commonjs",
+      "modules",
+      "esm"
+    ],
+    "tags": [
+      "webpack",
+      "javascript",
+      "tree shaking",
+      "babel",
+      "esm",
+      "amd",
+      "umd",
+      "systemjs",
+      "commonjs",
+      "modules"
+    ],
+    "path": "webpack/tree-shaking",
+    "draft": false,
+    "fileName": "tree-shaking.md"
+  }
+}

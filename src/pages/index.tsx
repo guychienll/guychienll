@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import Block from "../components/Block";
 import ProjectItem from "../components/ProjectItem";
-import { POSTS, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
+import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
 
 export default function Home(): ReactNode {
@@ -15,7 +15,7 @@ export default function Home(): ReactNode {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const onClickPost = (link: string) => {
+  const onClickNote = (link: string) => {
     window.location.href = link;
   };
 
@@ -139,18 +139,18 @@ export default function Home(): ReactNode {
             </section>
             <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center">
               <Block
-                id="posts"
-                title="Posts"
+                id="notes"
+                title="Notes"
                 contentClassName="flex flex-col gap-y-2 w-full"
                 className="h-full"
               >
-                {POSTS.map((post) => {
+                {NOTES.map((note) => {
                   return (
                     <motion.div
-                      key={post.title}
+                      key={note.title}
                       className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer h-[130px]"
                       onClick={() => {
-                        onClickPost(post.link);
+                        onClickNote(note.link);
                       }}
                       whileHover={{
                         scale: 1.02,
@@ -173,14 +173,14 @@ export default function Home(): ReactNode {
                       }}
                     >
                       <motion.div className="text-md text-gray-400 mb-2 font-bold">
-                        {post.title}
+                        {note.title}
                       </motion.div>
                       <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
-                        {post.description}
+                        {note.description}
                       </motion.div>
                       <div className="flex-1" />
                       <motion.div className="text-xs text-gray-500 text-right">
-                        {post.date}
+                        {note.date}
                       </motion.div>
                     </motion.div>
                   );

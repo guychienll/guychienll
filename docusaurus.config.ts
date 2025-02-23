@@ -154,7 +154,8 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 
   plugins: [
-    require.resolve("./plugins/index.js"),
+    "./plugins/postcss.js",
+    "./plugins/notes-feed.js",
     [
       "@docusaurus/plugin-client-redirects",
       {

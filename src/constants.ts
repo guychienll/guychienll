@@ -1,3 +1,5 @@
+import notes from "../notes/feed.json";
+
 enum ProjectCategory {
   ALL = "all",
   WEBSITE = "website",
@@ -28,42 +30,14 @@ const SOCIAL_LINKS = [
   },
 ] as const;
 
-const POSTS = [
-  {
-    title: "Vim Basics",
-    description: "Vim 基礎筆記 / 模式切換 / 記憶詞 / Text Object",
-    link: "/notes/vim",
-    date: "2024-04-08",
-  },
-  {
-    title: "VSCode 配置推薦",
-    description:
-      "VSCode 配置推薦，包含 Vim 生態系 plugins / VSCode 設定 / 自訂快捷鍵",
-    link: "/notes/vim/vscode",
-    date: "2024-04-08",
-  },
-  {
-    title: "JetBrains 配置推薦",
-    description:
-      "JetBrains 系列 IDE 配置推薦，包含 vim 生態系 plugins / 自訂快捷鍵",
-    link: "/notes/vim/jetbrains",
-    date: "2024-04-08",
-  },
-  {
-    title: "Webpack Tree Shaking",
-    description:
-      "使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking",
-    link: "/notes/webpack/tree-shaking",
-    date: "2023-11-09",
-  },
-  {
-    title: "Webpack Loaders 與 Plugins",
-    description:
-      "Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。",
-    link: "/notes/webpack/loaders",
-    date: "2023-12-10",
-  },
-]
+const NOTES = Object.values(notes)
+  .filter((note) => !note.draft)
+  .map((note) => ({
+    title: note.title,
+    description: note.description,
+    link: `/notes/${note.path}`,
+    date: note.created,
+  }))
   .sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   })
@@ -205,4 +179,5 @@ const PROJECTS = [
   return new Date(b.created).getTime() - new Date(a.created).getTime();
 });
 
-export { SOCIAL_LINKS, POSTS, SKILLS, PROJECTS, ProjectCategory };
+export { NOTES, ProjectCategory, PROJECTS, SKILLS, SOCIAL_LINKS };
+
