@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const yamlFront = require("yaml-front-matter");
-const { v4: uuidv4 } = require('uuid');
+const crypto = require("crypto");
 
 const processMarkdownFile = (filePath, parentPath) => {
   const content = fs.readFileSync(filePath, "utf8");
@@ -35,10 +35,10 @@ const traverseDirectory = (dirPath, files = {}, parentPath = "") => {
       const newParentPath = parentPath ? `${parentPath}/${entry}` : entry;
       Object.assign(files, traverseDirectory(entryPath, files, newParentPath));
     } else if (entry.endsWith(".md")) {
-      const uuid = uuidv4();
-      files[uuid] = {
+      const hash = crypto.createHash("sha256").update(entryPath).digest("hex");
+      files[hash] = {
         ...processMarkdownFile(entryPath, parentPath),
-        fileName: entry
+        fileName: entry,
       };
     }
   });

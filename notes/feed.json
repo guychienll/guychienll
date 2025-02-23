@@ -1,5 +1,26 @@
 {
-  "4a12f3c0-86c8-4c73-bb22-f696b42037b4": {
+  "8567b7ad8771a91cc5b65a3429e94e5535a710fabcc07370e5403d3db3001579": {
+    "id": "docusaurus-docs-feed-plugin",
+    "title": "Docusaurus Docs Feed Plugin",
+    "description": "使用 docusaurus-docs-feed-plugin 生成文件的 Feeds，讓使用者可以看到最新的文章內容",
+    "tags": [
+      "Docusaurus",
+      "Plugin",
+      "Feed",
+      "Docs"
+    ],
+    "keywords": [
+      "Docusaurus",
+      "Plugin",
+      "Feed",
+      "Docs"
+    ],
+    "created": "Sun Feb 23 2025",
+    "path": "docusaurus/docusaurus-docs-feed-plugin",
+    "draft": false,
+    "fileName": "docusaurus-docs-feed-plugin.md"
+  },
+  "6178f3df611a9e7f21b9c1740b2bc8cd26307b2cd08f5b137af038b4d624e52a": {
     "id": "event-loop",
     "title": "Event Loop",
     "description": "介紹 JavaScript 的 Event Loop，以及其運作原理，並且介紹其運作順序，以及經典面試題",
@@ -20,7 +41,7 @@
     "draft": false,
     "fileName": "event-loop.md"
   },
-  "f38fb8a9-5bd8-4c85-b05e-c332ab7fb6bc": {
+  "1232b742056084f53c279b637c43a46a72656f574464296e024de92da6099424": {
     "id": "jotai",
     "title": "Jotai",
     "description": "Jotai Notes",
@@ -42,7 +63,7 @@
     "path": "state-management/jotai",
     "fileName": "jotai.md"
   },
-  "e510b3ae-9ed6-4d22-9267-0438063cee72": {
+  "949990ded6583fd76791beb48291e359f2150f9f643697663f961f0c16e8f812": {
     "id": "jetbrains",
     "title": "JetBrains 配置推薦",
     "description": "介紹 JetBrains IDE 的配置推薦，包含 Vim 配置、Easymotion 配置、Refactor 配置",
@@ -104,7 +125,7 @@
     "draft": false,
     "fileName": "jetbrains.md"
   },
-  "94c1ef7f-1118-4096-aa99-0dd06ae39707": {
+  "5f5120b2d6d41cd6f7d9ca89581aa44a86a90b09bfe7748fa8b79b32ebc87f1c": {
     "id": "vim",
     "title": "Vim Basics",
     "description": "Vim 基礎介紹，學習曲線、模式切換、編輯動作、導航動作、命令",
@@ -132,7 +153,7 @@
     "draft": false,
     "fileName": "vim.md"
   },
-  "0a332bec-b8b1-4b85-8a6e-91e964bd6272": {
+  "3eb703a87b462473e3d5e55c1e5420d056fccbd491c631a09c1df609ae6f1637": {
     "id": "vscode",
     "sidebar_position": 2,
     "title": "VSCode 配置推薦",
@@ -160,7 +181,7 @@
     "draft": false,
     "fileName": "vscode.md"
   },
-  "5a852f4d-d605-47f1-9557-27bc137f79c3": {
+  "f71800fef19afa439259ffbcdc9ab0ba00b7df1d7246747232ee6dd4d54a1a18": {
     "id": "loaders-and-plugins",
     "title": "Loaders & Plugins",
     "description": "Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。",
@@ -190,7 +211,7 @@
     "draft": false,
     "fileName": "loaders-and-plugins.md"
   },
-  "29256839-4874-42e8-abb6-22ebafd00c10": {
+  "180902a2566ecc0d1249ac376ba597c78cb4e3124810cdc55a37c7485865d16d": {
     "id": "tree-shaking",
     "title": "Tree Shaking",
     "description": "使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking",
