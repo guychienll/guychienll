@@ -2,19 +2,36 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
-import { type ReactNode } from "react";
+import { type ReactNode, useState, useEffect } from "react";
 import Block from "../components/Block";
 import NoteItem from "../components/NoteItem";
 import ProjectItem from "../components/ProjectItem";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
 
-export default function Home(): ReactNode {
+export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
+  const [imageSrc, setImageSrc] = useState(
+    `https://guychienll.vercel.app/api/spotify?t=${Math.floor(
+      Date.now() / (30 * 1000)
+    )}`
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageSrc(
+        `https://guychienll.vercel.app/api/spotify?t=${Math.floor(
+          Date.now() / (30 * 1000)
+        )}`
+      );
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div id="home-page">
@@ -119,7 +136,7 @@ export default function Home(): ReactNode {
                         width={200}
                         height={200}
                         whileHover={{ opacity: 0.6 }}
-                        src="https://guychienll.vercel.app/api/spotify"
+                        src={imageSrc}
                         alt="Spotify"
                         className="w-full relative z-10"
                         onLoad={(e) => {
