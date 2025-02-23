@@ -1,6 +1,6 @@
 ---
-id: loaders
-title: Webpack Loaders 與 Plugins
+id: loaders-and-plugins
+title: Loaders & Plugins
 description: Webpack 常用 loaders 與 plugins 使用方式介紹，及其適用場景與注意細節。
 keywords:
     - webpack

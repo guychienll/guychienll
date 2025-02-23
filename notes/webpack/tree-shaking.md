@@ -1,6 +1,6 @@
 ---
 id: tree-shaking
-title: 深入解析 Webpack Tree Shaking
+title: Tree Shaking
 description: 使用簡易程式碼解釋 webpack 如何達成 Tree Shaking，並且介紹 Tree Shaking 的必備條件，以及如何撰寫 best practices 以輕鬆達成 Tree Shaking
 keywords:
     [
