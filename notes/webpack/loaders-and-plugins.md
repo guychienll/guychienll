@@ -444,7 +444,7 @@ html-webpack-plugin 是一個用於生成 HTML 檔案的 plugin。
 template 參數可以指定一個 HTML 模板檔案，
 webpack 會將打包好的 bundle 檔案自動插入到 HTML 檔案中。
 
-```js {3} title="webpack.config.js" showLineNumbers
+```js title="webpack.config.js" showLineNumbers
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -462,7 +462,7 @@ module.exports = {
 copy-webpack-plugin 是一個用於複製檔案的 plugin。
 它允許我們在 webpack 打包過程中，將指定的檔案複製到指定的目錄中。
 
-```js {3} title="webpack.config.js" showLineNumbers
+```js title="webpack.config.js" showLineNumbers
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -479,7 +479,7 @@ module.exports = {
 sentry-webpack-plugin 是一個用於上傳 source map 到 Sentry 的 plugin。
 它允許我們在 webpack 打包過程中，將 source map 上傳到 Sentry 中。
 
-```js {3} title="webpack.config.js" showLineNumbers
+```js title="webpack.config.js" showLineNumbers
 const SentryWebpackPlugin = require('@sentry/webpack');
 
 module.exports = {
