@@ -477,7 +477,7 @@ module.exports = {
 ### sentry-webpack-plugin
 
 sentry-webpack-plugin 是一個用於上傳 source map 到 Sentry 的 plugin。
-它允許我們在 webpack 打包過程中，將 source map 上傳到 Sentry 中，
+它允許我們在 webpack 打包過程中，將 source map 上傳到 Sentry 中。
 
 ```js {3} title="webpack.config.js" showLineNumbers
 const SentryWebpackPlugin = require('@sentry/webpack');
