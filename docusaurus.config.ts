@@ -169,8 +169,8 @@ const config: Config = {
             from: ["/notes/webpack/loaders", "/docs/web/webpack/loaders"],
           },
           {
-            to: "/notes/vim",
-            from: "/docs/vim/vim",
+            to: "/notes/vim/vim-basics",
+            from: ["/notes/vim", "/docs/vim/vim"],
           },
           {
             to: "/notes/vim/jetbrains",
