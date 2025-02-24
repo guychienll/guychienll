@@ -107,34 +107,6 @@
     "draft": false,
     "fileName": "jetbrains.md"
   },
-  "5f5120b2d6d41cd6f7d9ca89581aa44a86a90b09bfe7748fa8b79b32ebc87f1c": {
-    "id": "vim",
-    "title": "Vim Basics",
-    "description": "Vim 基礎介紹，學習曲線、模式切換、編輯動作、導航動作、命令",
-    "sidebar_position": 1,
-    "created": "Tue Apr 09 2024",
-    "tags": [
-      "vim",
-      "basics",
-      "learning-curve",
-      "mode",
-      "commands",
-      "navigation",
-      "editing"
-    ],
-    "keywords": [
-      "vim",
-      "basics",
-      "learning-curve",
-      "mode",
-      "commands",
-      "navigation",
-      "editing"
-    ],
-    "path": "vim/vim",
-    "draft": false,
-    "fileName": "vim.md"
-  },
   "3eb703a87b462473e3d5e55c1e5420d056fccbd491c631a09c1df609ae6f1637": {
     "id": "vscode",
     "sidebar_position": 2,
