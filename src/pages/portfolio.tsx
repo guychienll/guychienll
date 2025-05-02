@@ -70,17 +70,13 @@ const Portfolio = () => {
           </div>
         </motion.div>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4"
           variants={ANIMATION_VARIANTS}
           initial="hidden"
           animate="show"
         >
           {filteredProjects.map((project) => (
-            <motion.div
-              key={project.title}
-              variants={ITEM_VARIANTS}
-              className="mx-auto"
-            >
+            <motion.div key={project.title} variants={ITEM_VARIANTS}>
               <ProjectItem {...project} />
             </motion.div>
           ))}
