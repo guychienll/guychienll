@@ -1,4 +1,25 @@
 {
+  "53730d38e06a3696fe45c206baf7a84a8fcbb05f3934a718a1c443a91f2b72de": {
+    "id": "rag",
+    "title": "使用 EmbedJS 實作 RAG AI 機器人",
+    "description": "RAG 介紹及使用 EmbedJS 實作 RAG AI 機器人，精準答覆問題。",
+    "tags": [
+      "ai",
+      "embedjs",
+      "node",
+      "javascript"
+    ],
+    "keywords": [
+      "ai",
+      "embedjs",
+      "node",
+      "javascript"
+    ],
+    "created": "Fri May 02 2025",
+    "path": "ai/rag",
+    "draft": false,
+    "fileName": "rag.md"
+  },
   "8567b7ad8771a91cc5b65a3429e94e5535a710fabcc07370e5403d3db3001579": {
     "id": "docusaurus-docs-feed-plugin",
     "title": "Docusaurus Docs Feed Plugin",
