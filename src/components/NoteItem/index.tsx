@@ -26,7 +26,7 @@ function NoteItem(props: NoteItemProps) {
   return (
     <motion.div
       key={note.title}
-      className="flex flex-col p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer aspect-[16/9] h-[135px]"
+      className="flex flex-col p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors duration-300 cursor-pointer aspect-[16/9] h-[135px]"
       onClick={() => {
         onClickNote(note.link);
       }}

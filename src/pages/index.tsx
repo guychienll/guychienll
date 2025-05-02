@@ -2,7 +2,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
-import { type ReactNode, useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Block from "../components/Block";
 import NoteItem from "../components/NoteItem";
 import ProjectItem from "../components/ProjectItem";
@@ -51,7 +51,7 @@ export default function Home() {
                 </a>
               </div>
             </section>
-            <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2">
+            <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2 h-fit">
               <Block id="avatar" align="center">
                 <motion.img
                   width={200}
@@ -151,7 +151,7 @@ export default function Home() {
                 </Block>
               </motion.div>
             </section>
-            <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center">
+            <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit">
               <Block
                 id="notes"
                 title="Notes"
@@ -186,11 +186,11 @@ export default function Home() {
                 </motion.a>
               </motion.div>
             </section>
-            <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center">
+            <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit">
               <Block
                 id="portfolio"
                 title="Portfolio"
-                contentClassName="lg:flex lg:flex-col lg:gap-y-2 w-full grid sm:grid-cols-3 grid-cols-2 gap-2"
+                contentClassName="lg:flex lg:flex-col lg:gap-y-2 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
                 className="h-full"
               >
                 {PROJECTS.slice(0, 5).map((project) => {

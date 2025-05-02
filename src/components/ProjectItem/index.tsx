@@ -28,7 +28,7 @@ function ProjectItem({
     <motion.div
       title={`${title} - ${description}`}
       className={clsx(
-        "relative w-full aspect-[16/9] clip-path-inset-0-round-8px rounded-lg overflow-hidden box-border group cursor-pointer bg-contain bg-center bg-no-repeat bg-white"
+        "relative max-w-full h-[135px] aspect-[16/9] clip-path-inset-0-round-8px rounded-lg overflow-hidden box-border group cursor-pointer bg-cover bg-center bg-no-repeat bg-white"
       )}
       style={{
         backgroundImage: `url(${image})`,
