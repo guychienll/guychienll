@@ -159,6 +159,15 @@ const PROJECTS = [
     ],
   },
   {
+    title: "Zelus",
+    description: "個人 zsh 配置，包含 zsh plugins / 跨平台支援 / 自訂 alias",
+    image: "/img/media/zelus-16-9.png",
+    link: "https://github.com/guychienll/zelus",
+    created: "2025-05-02",
+    imageClassName: "bg-[#ffffff]",
+    categories: [ProjectCategory.ALL, ProjectCategory.TOOL],
+  },
+  {
     title: ".vim",
     description: "個人 Vim 配置，包含 Vim 生態系 plugins / 自訂快捷鍵",
     image: "/img/media/vim-16-9.png",
