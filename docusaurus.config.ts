@@ -86,6 +86,55 @@ const config: Config = {
       async: false,
     },
   ],
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preload",
+        as: "image",
+        href: "/img/media/avatar.webp",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap",
+        onload: "this.onload=null;this.rel='stylesheet'",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Sriracha&display=swap",
+        onload: "this.onload=null;this.rel='stylesheet'",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap",
+        onload: "this.onload=null;this.rel='stylesheet'",
+      },
+    },
+  ],
 
   themeConfig: {
     image: "img/media/social-card.png",
