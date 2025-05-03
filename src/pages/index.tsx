@@ -53,17 +53,15 @@ export default function Home() {
               </div>
             </section>
             <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2 h-fit">
-              <Block id="avatar" align="center">
-                <motion.img
-                  width={200}
-                  height={200}
-                  src="/img/media/avatar.webp"
-                  alt="avatar"
-                  fetchPriority="high"
-                  className="object-cover rounded-full ring-4 ring-[#101010]"
-                  loading="eager"
-                />
-              </Block>
+              <img
+                width={200}
+                height={200}
+                src="/img/media/avatar.webp"
+                alt="avatar"
+                fetchPriority="high"
+                className="object-cover rounded-full ring-4 h-[200px] ring-[#101010]"
+                loading="eager"
+              />
               <motion.div className="flex flex-col items-center gap-y-4 py-4">
                 <Block id="name" align="center">
                   <motion.div className="flex flex-col items-center text-gray-100 font-bold text-xl tracking-wider">
