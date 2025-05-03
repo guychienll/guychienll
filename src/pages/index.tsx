@@ -56,7 +56,7 @@ export default function Home() {
                 <motion.img
                   width={200}
                   height={200}
-                  src="/img/media/avatar.jpeg"
+                  src="/img/media/avatar.webp"
                   alt="avatar"
                   className="object-cover rounded-full ring-6 ring-[#101010]"
                 />

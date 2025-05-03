@@ -111,7 +111,7 @@ const PROJECTS = [
   {
     title: "嘉禮富裕 | 嘉禮建設",
     description: "嘉禮富裕建案官網，提供建案介紹、規劃、諮詢表單。",
-    image: "/img/media/chia-li-fu-yu-16-9.png",
+    image: "/img/media/chia-li-fu-yu-16-9.webp",
     link: "https://chia-li-fu-yu.guychienll.dev/",
     created: "2023-10-30",
     imageClassName: "bg-[#ffffff]",
@@ -125,7 +125,7 @@ const PROJECTS = [
     title: "葛林美斯家具 | Glimax",
     description:
       "葛林美斯家具品牌官網，全站包含搜尋、產品列表篩選分頁，並提供顧客線上諮詢表單寄送",
-    image: "/img/media/glimax-16-9.png",
+    image: "/img/media/glimax-16-9.webp",
     link: "https://oa7-11.web.app/",
     created: "2022-07-02",
     imageClassName: "bg-[#ffffff] p-4",
@@ -134,7 +134,7 @@ const PROJECTS = [
   {
     title: "fake line message generator",
     description: "生成假 Line 訊息，協助行銷人員推廣產品。",
-    image: "/img/media/flmg-16-9.png",
+    image: "/img/media/flmg-16-9.webp",
     link: "/portfolio/flmg",
     created: "2024-02-15",
     imageClassName: "bg-[#ffffff]",
@@ -148,7 +148,7 @@ const PROJECTS = [
     title: "Pull Request Platform",
     description:
       "Pull Request 平台，協助團隊成員管理跨 Repository Pull Request",
-    image: "/img/media/prp-16-9.png",
+    image: "/img/media/prp-16-9.webp",
     link: "/portfolio/prp",
     created: "2024-10-11",
     imageClassName: "bg-[#ffffff] p-2",
@@ -161,7 +161,7 @@ const PROJECTS = [
   {
     title: "Zelus",
     description: "個人 zsh 配置，包含 zsh plugins / 跨平台支援 / 自訂 alias",
-    image: "/img/media/zelus-16-9.png",
+    image: "/img/media/zelus-16-9.webp",
     link: "https://github.com/guychienll/zelus",
     created: "2025-05-02",
     imageClassName: "bg-[#ffffff]",
