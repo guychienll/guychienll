@@ -36,7 +36,6 @@ export default function Home() {
 
   return (
     <div id="home-page">
-      <link rel="preload" as="image" href="/img/media/avatar.webp" />
       <Layout title="Home" description={siteConfig.tagline}>
         <main className="grid lg:h-screen mx-auto w-full max-w-[1024px] lg:place-items-center">
           <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] min-h-[850px] w-full p-4">
@@ -60,7 +59,8 @@ export default function Home() {
                   height={200}
                   src="/img/media/avatar.webp"
                   alt="avatar"
-                  className="object-cover rounded-full ring-4 w-[200px] h-[200px] ring-[#101010]"
+                  fetchPriority="high"
+                  className="object-cover rounded-full ring-4 ring-[#101010]"
                   loading="eager"
                 />
               </Block>
