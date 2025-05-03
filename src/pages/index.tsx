@@ -7,6 +7,7 @@ import Block from "../components/Block";
 import NoteItem from "../components/NoteItem";
 import ProjectItem from "../components/ProjectItem";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
+
 import "./index.css";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
 
   return (
     <div id="home-page">
+      <link rel="preload" as="image" href="/img/media/avatar.webp" />
       <Layout title="Home" description={siteConfig.tagline}>
         <main className="grid lg:h-screen mx-auto w-full max-w-[1024px] lg:place-items-center">
           <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] min-h-[850px] w-full p-4">
@@ -59,6 +61,7 @@ export default function Home() {
                   src="/img/media/avatar.webp"
                   alt="avatar"
                   className="object-cover rounded-full ring-6 ring-[#101010]"
+                  loading="eager"
                 />
               </Block>
               <motion.div className="flex flex-col items-center gap-y-4 py-4">
