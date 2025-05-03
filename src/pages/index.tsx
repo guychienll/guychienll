@@ -60,7 +60,7 @@ export default function Home() {
                   height={200}
                   src="/img/media/avatar.webp"
                   alt="avatar"
-                  className="object-cover rounded-full ring-6 ring-[#101010]"
+                  className="object-cover rounded-full ring-4 w-[200px] h-[200px] ring-[#101010]"
                   loading="eager"
                 />
               </Block>
