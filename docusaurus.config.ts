@@ -92,7 +92,7 @@ const config: Config = {
       attributes: {
         rel: "preload",
         as: "image",
-        href: "/img/media/avatar.webp",
+        href: "/img/media/avatar.png",
       },
     },
     {

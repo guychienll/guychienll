@@ -56,7 +56,7 @@ export default function Home() {
               <img
                 width={200}
                 height={200}
-                src="/img/media/avatar.webp"
+                src="/img/media/avatar.png"
                 alt="avatar"
                 fetchPriority="high"
                 className="object-cover rounded-full ring-4 h-[200px] ring-[#101010]"
