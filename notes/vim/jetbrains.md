@@ -27,7 +27,6 @@ sidebar_position: 3
 
 ```text title="~/.ideavimrc"
 let mapleader=';'
-plug 'easymotion/vim-easymotion'
 
 set number
 set clipboard+=unnamed
@@ -39,16 +38,21 @@ set showmode
 set scrolloff=5
 set surround
 set easymotion
+set ideajoin
 
 
-map rr :action refactorings.quicklistpopupaction<cr>
-map rn :action renameelement<cr>
-map ri :action inline<cr>
-map rv :action introducevariable<cr>
-map rp :action introduceparameter<cr>
-map rm :action extractmethod<cr>
-map rc :action changesignature<cr>
-map zn :action gotonexterror<cr>
-map zp :action gotopreviouserror<cr>
-map ec :action reactextractcomponentaction<cr>
+map RR :action Refactorings.QuickListPopupAction<CR>
+map RN :action RenameElement<CR>
+map RI :action Inline<CR>
+map RV :action IntroduceVariable<CR>
+map RP :action IntroduceParameter<CR>
+map RM :action ExtractMethod<CR>
+map RC :action ChangeSignature<CR>
+map zn :action GotoNextError<CR>
+map zp :action GotoPreviousError<CR>
+map EC :action ReactExtractComponentAction<CR>
+
+
+plug 'easymotion/vim-easymotion'
+Plug 'machakann/vim-highlightedyank'
 ```
