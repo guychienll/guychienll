@@ -13,7 +13,7 @@ JavaScript 是一個 Single Thread 的語言
 也就意味著 JavaScript 只能同時做一件事情  
 如果有多件事情需要做，就必須等待前一件事情做完才能做下一件事情
 
-## 任務 | Task aka. `MicroTask 宏任務` 
+## 任務 | Task aka. `MacroTask 宏任務` 
 
 - main thread
 - setTimeout
