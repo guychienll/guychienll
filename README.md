@@ -11,11 +11,7 @@ I have nearly 5 years of experience with React, and I have experience in address
 <table align="center">
   <tr>
     <td><strong>Current Workplace</strong></td>
-    <td><a href="https://www.rezio.io/">rezio</a></td>
-  </tr>
-  <tr>
-    <td><strong>Former Workplace</strong></td>
-    <td><a href="https://www.pinkoi.com/">Pinkoi</a></td>
+    <td>-</td>
   </tr>
   <tr>
     <td><strong>Portfolio Projects</strong></td>
