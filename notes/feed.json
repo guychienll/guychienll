@@ -86,6 +86,30 @@
     "path": "state-management/jotai",
     "fileName": "jotai.md"
   },
+  "446db064927db9b92a73d66d059fb14a0c1c0df30d88731fde2a3eb0a6f83c52": {
+    "id": "web-security",
+    "title": "Web Security",
+    "description": "web security notes",
+    "sidebar_position": 1,
+    "draft": true,
+    "created": "Wed Jul 16 2025",
+    "tags": [
+      "javascript",
+      "web",
+      "security",
+      "html",
+      "css"
+    ],
+    "keywords": [
+      "javascript",
+      "web",
+      "security",
+      "html",
+      "css"
+    ],
+    "path": "unclassified/web-security",
+    "fileName": "web-security.md"
+  },
   "949990ded6583fd76791beb48291e359f2150f9f643697663f961f0c16e8f812": {
     "id": "jetbrains",
     "title": "JetBrains 配置推薦",
