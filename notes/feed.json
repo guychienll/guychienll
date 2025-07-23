@@ -64,6 +64,30 @@
     "draft": false,
     "fileName": "event-loop.md"
   },
+  "29951fcc57d58bd0c7bd85811e2b3473ee4b9caad78a845ac92cc52d69829bed": {
+    "id": "reconciliation",
+    "title": "React Reconciliation",
+    "description": "什麼是 React Reconciliation ?",
+    "tags": [
+      "node",
+      "npm",
+      "javascript",
+      "react",
+      "reconciliation"
+    ],
+    "keywords": [
+      "node",
+      "npm",
+      "javascript",
+      "react",
+      "reconciliation"
+    ],
+    "sidebar_position": 1,
+    "created": "Thu Mar 28 2024",
+    "path": "react/reconciliation",
+    "draft": false,
+    "fileName": "reconciliation.mdx"
+  },
   "1232b742056084f53c279b637c43a46a72656f574464296e024de92da6099424": {
     "id": "jotai",
     "title": "Jotai",
@@ -85,6 +109,26 @@
     ],
     "path": "state-management/jotai",
     "fileName": "jotai.md"
+  },
+  "53b7f4f34c762b75d9ad314b88864317432f647b678d46be298e096cbf81aeec": {
+    "id": "css-center",
+    "title": "CSS Center",
+    "description": "CSS 置中的方法",
+    "tags": [
+      "css",
+      "vertical",
+      "center"
+    ],
+    "keywords": [
+      "css",
+      "vertical",
+      "center"
+    ],
+    "sidebar_position": 2,
+    "created": "Wed Jul 23 2025",
+    "path": "unclassified/css-center",
+    "draft": false,
+    "fileName": "css-center.mdx"
   },
   "446db064927db9b92a73d66d059fb14a0c1c0df30d88731fde2a3eb0a6f83c52": {
     "id": "web-security",
@@ -151,6 +195,34 @@
     "path": "vim/jetbrains",
     "draft": false,
     "fileName": "jetbrains.md"
+  },
+  "65abf07e06cec773739ee7581f55c995c67d7b224fcd7bfd2d981555a867a4b9": {
+    "id": "vim-basics",
+    "title": "Vim Basics",
+    "description": "Vim 基礎介紹，學習曲線、模式切換、編輯動作、導航動作、命令",
+    "sidebar_position": 1,
+    "created": "Tue Apr 09 2024",
+    "tags": [
+      "vim",
+      "basics",
+      "learning-curve",
+      "mode",
+      "commands",
+      "navigation",
+      "editing"
+    ],
+    "keywords": [
+      "vim",
+      "basics",
+      "learning-curve",
+      "mode",
+      "commands",
+      "navigation",
+      "editing"
+    ],
+    "path": "vim/vim-basics",
+    "draft": false,
+    "fileName": "vim-basics.mdx"
   },
   "3eb703a87b462473e3d5e55c1e5420d056fccbd491c631a09c1df609ae6f1637": {
     "id": "vscode",

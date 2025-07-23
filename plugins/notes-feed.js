@@ -3,10 +3,15 @@ const path = require("path");
 const yamlFront = require("yaml-front-matter");
 const crypto = require("crypto");
 
+// 支援 .md 及 .mdx 檔案
+const MARKDOWN_EXTENSIONS = [".md", ".mdx"];
+
 const processMarkdownFile = (filePath, parentPath) => {
   const content = fs.readFileSync(filePath, "utf8");
   const frontMatter = yamlFront.loadFront(content);
-  const fileName = path.basename(filePath, ".md");
+  // 取得副檔名，支援 .md 及 .mdx
+  const ext = path.extname(filePath);
+  const fileName = path.basename(filePath, ext);
   const notePath = parentPath ? `${parentPath}/${fileName}` : fileName;
 
   delete frontMatter.__content;
@@ -34,7 +39,7 @@ const traverseDirectory = (dirPath, files = {}, parentPath = "") => {
     if (stats.isDirectory()) {
       const newParentPath = parentPath ? `${parentPath}/${entry}` : entry;
       Object.assign(files, traverseDirectory(entryPath, files, newParentPath));
-    } else if (entry.endsWith(".md")) {
+    } else if (MARKDOWN_EXTENSIONS.some((ext) => entry.endsWith(ext))) {
       const hash = crypto.createHash("sha256").update(entryPath).digest("hex");
       files[hash] = {
         ...processMarkdownFile(entryPath, parentPath),
