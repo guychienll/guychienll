@@ -1,0 +1,177 @@
+---
+id: css-center
+title: 'CSS Center'
+description: CSS 置中的方法
+tags: [css,vertical,center]
+keywords: [css,vertical,center]
+sidebar_position: 2
+created: '2025-07-23'
+---
+
+
+## 垂直水平置中
+
+1. flex
+
+```css
+.outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  /* nothing */
+}
+```
+
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white flex flex-row items-center justify-center">
+      <div className="size-5 bg-black" />
+    </div>
+  );
+}
+
+render(<Demo />);
+```
+
+2. grid
+
+```css
+.outer {
+  display: grid;
+  place-items: center;
+}
+
+.inner {
+  /* nothing */
+}
+```
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white grid place-items-center">
+      <div className="size-5 bg-black" />
+    </div>
+  );
+}
+
+render(<Demo />);
+```
+
+3. flex + margin
+
+
+```css
+.outer {
+  display: flex;
+}
+
+.inner {
+  margin: auto;
+}
+```
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white flex">
+      <div className="size-5 bg-black m-auto" />
+    </div>
+  );
+}
+
+render(<Demo />);
+```
+
+4. relative + (absolute + top + left + transform) 
+
+
+```css
+.outer {
+  display: relative;
+}
+
+.inner {
+  display: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+```
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white relative">
+      <div className="size-5 bg-black absolute top-1/2 left-1/2 -translate-1/2" />
+    </div>
+  );
+}
+
+render(<Demo />);
+```
+
+5. table + (table-cell + vertaical align + text align) + inline-block
+
+```css
+.outer {
+  display: table;
+}
+
+.middle {
+  display: table-cell;
+  vertaical-align: center;
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+```
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white table">
+      <div className="table-cell align-middle text-center">
+        <div className="bg-black inline-block size-5"/>
+      </div>
+    </div>
+  );
+}
+
+render(<Demo />);
+```
+
+5. (line-height + height + text-align) + inline-block
+
+```css
+.outer {
+  --same-height: 208px;
+  line-height: var(--same-height);
+  height: var(--same-height);
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+```
+
+```jsx live noInline 
+function Demo() {
+  return (
+    <div className="size-52 bg-white leading-52 h-52 text-center">
+      <div className="inline-block size-5 bg-black"/>
+    </div>
+  );
+}
+
+render(<Demo />);
+```
