@@ -2,7 +2,6 @@
 id: jotai
 title: Jotai
 description: Jotai Notes
-sidebar_position: 1
 draft: true
 created: '2025-02-23'
 tags: [jotai,state-management,react,javascript]
