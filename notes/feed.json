@@ -131,7 +131,7 @@
   "bb5d4af518405562669b74dfadaf7f1c02c5377489e0477a8a7e132909550db2": {
     "id": "react-hook-form",
     "title": "React Hook Form",
-    "description": "React Hook Form 開發筆記，重點整理",
+    "description": "React Hook Form 開發筆記，涵蓋核心用法、效能優化、進階技巧與常見驗證範例。",
     "tags": [
       "react",
       "form",

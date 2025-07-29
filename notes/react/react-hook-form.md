@@ -1,7 +1,7 @@
 ---
 id: react-hook-form
 title: 'React Hook Form'
-description: React Hook Form 開發筆記，重點整理
+description: React Hook Form 開發筆記，涵蓋核心用法、效能優化、進階技巧與常見驗證範例。
 tags: [react,form,library]
 keywords: [react,form,library]
 created: '2025-07-25'
