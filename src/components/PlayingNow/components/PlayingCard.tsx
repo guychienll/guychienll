@@ -17,7 +17,7 @@ export const PlayingCard = ({ playingNow }: PlayingCardProps) => (
     whileHover={{ scale: 1.02 }}
   >
     <motion.div
-      className="flex items-center gap-4 p-4 rounded-lg shadow-lg relative overflow-hidden min-h-[88px]"
+      className="flex items-center gap-4 p-4 rounded-lg shadow-lg relative overflow-hidden h-[88px]"
       animate={{
         background: [
           "linear-gradient(90deg, #1db954cc 0%, #191414cc 100%)",

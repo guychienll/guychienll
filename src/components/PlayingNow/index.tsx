@@ -1,15 +1,19 @@
-import { useSpotifyRefreshToken, useSpotifyPlayingNow } from "./hooks";
-import { PlayingCard, NotPlayingCard } from "./components";
+import { LoadingCard, NotPlayingCard, PlayingCard } from "./components";
+import { useSpotifyPlayingNow, useSpotifyRefreshToken } from "./hooks";
 
 function PlayingNow() {
   const isRefreshTokenReady = useSpotifyRefreshToken();
-  const playingNow = useSpotifyPlayingNow(isRefreshTokenReady);
+  const { playingNow, isLoading } = useSpotifyPlayingNow(isRefreshTokenReady);
 
-  if (playingNow) {
-    return <PlayingCard playingNow={playingNow} />;
+  if (isLoading) {
+    return <LoadingCard />;
   }
 
-  return <NotPlayingCard />;
+  if (!playingNow) {
+    return <NotPlayingCard />;
+  }
+
+  return <PlayingCard playingNow={playingNow} />;
 }
 
 export default PlayingNow;
