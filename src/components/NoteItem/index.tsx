@@ -12,6 +12,8 @@ interface NoteItemProps {
   note: Note;
 }
 
+const VISIBLE_TAGS_COUNT = 2;
+
 function NoteItem(props: NoteItemProps) {
   const { note } = props;
 
@@ -50,7 +52,7 @@ function NoteItem(props: NoteItemProps) {
         },
       }}
     >
-      <motion.div className="text-md text-gray-400 mb-2 font-bold">
+      <motion.div className="text-lg text-gray-400 mb-2 font-bold line-clamp-1">
         {note.title}
       </motion.div>
       <motion.div className="text-sm text-gray-400 mb-2 line-clamp-2">
@@ -59,20 +61,18 @@ function NoteItem(props: NoteItemProps) {
       <div className="flex-1" />
       <div className="flex flex-row justify-between items-center">
         <motion.div className="text-xs flex gap-2">
-          {note.tags.slice(0, 2).map((tag) => {
-            return (
-              <button
-                key={tag}
-                className="px-2 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px]"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onClickTag(tag);
-                }}
-              >
-                # {tag}
-              </button>
-            );
-          })}
+          {note.tags.slice(0, VISIBLE_TAGS_COUNT).map((tag) => (
+            <button
+              key={tag}
+              className="px-2 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px]"
+              onClick={(e) => {
+                e.stopPropagation();
+                onClickTag(tag);
+              }}
+            >
+              # {tag}
+            </button>
+          ))}
         </motion.div>
         <motion.div className="text-xs text-gray-500 text-right">
           {note.date}

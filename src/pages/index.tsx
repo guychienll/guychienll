@@ -2,12 +2,12 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Block from "../components/Block";
+import NavigationBar from "../components/NavigationBar";
 import NoteItem from "../components/NoteItem";
+import PlayingNow from "../components/PlayingNow";
 import ProjectItem from "../components/ProjectItem";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
-
 import "./index.css";
 
 export default function Home() {
@@ -17,41 +17,12 @@ export default function Home() {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const [imageSrc, setImageSrc] = useState(
-    `https://guychienll.vercel.app/api/spotify?t=${Math.floor(
-      Date.now() / (30 * 1000)
-    )}`
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setImageSrc(
-        `https://guychienll.vercel.app/api/spotify?t=${Math.floor(
-          Date.now() / (30 * 1000)
-        )}`
-      );
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div id="home-page">
       <Layout title="Home" description={siteConfig.tagline}>
         <main className="grid lg:h-screen mx-auto w-full max-w-[1024px] lg:place-items-center">
           <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] min-h-[850px] w-full p-4">
-            <section className="p-2 customize-navbar col-span-12 flex items-center justify-between row-span-1 flex-wrap">
-              <div className="font-permanent-marker text-2xl tracking-[0.2em] uppercase">
-                guychienll
-              </div>
-              <div className="flex items-center justify-center gap-x-4">
-                <a
-                  href="/notes/category/vim"
-                  className="text-xl font-bold font-sriracha tracking-widest capitalize"
-                >
-                  notes
-                </a>
-              </div>
-            </section>
+            <NavigationBar />
             <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2 h-fit">
               <img
                 width={200}
@@ -70,16 +41,12 @@ export default function Home() {
                 </Block>
 
                 <Block id="about-me" align="left">
-                  我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 5 年的
-                  React 經驗，前端效能改善經驗，並協助團隊建立設計系統和 OpenAPI
-                  Schema Type Generator
-                  等...，來減少團隊成員之間的溝通障礙，目前於{" "}
-                  <motion.a href="https://www.linkedin.com/company/rezio-io/posts/?feedView=all">
-                    rezio
-                  </motion.a>{" "}
-                  擔任資深前端工程師。任何合作機會歡迎{" "}
+                  我是 Guy，是一名軟體工程師，熱愛分享所見所學，擁有近 6 年的
+                  React 經驗，前端效能改善經驗，並協助團隊建立設計系統和透過
+                  OpenAPI JSON Schema
+                  實現前後端介面統一等，來減少團隊成員之間的溝通障礙，促進團隊效率。如需任何合作邀約、回饋，可以透過{" "}
                   <motion.a href="mailto:guychienll@gmail.com">信箱</motion.a>{" "}
-                  連絡我。
+                  或是下方社群連結連絡我。
                 </Block>
 
                 <Block
@@ -88,20 +55,18 @@ export default function Home() {
                   align="left"
                   contentClassName="grid grid-cols-5 gap-4 w-full"
                 >
-                  {SKILLS.map((skill) => {
-                    return (
-                      <div
-                        key={skill.title}
-                        className="flex items-center justify-center"
-                      >
-                        <motion.i
-                          title={skill.title}
-                          className={skill.icon}
-                          whileHover={{ opacity: 0.6 }}
-                        />
-                      </div>
-                    );
-                  })}
+                  {SKILLS.map((skill) => (
+                    <div
+                      key={skill.title}
+                      className="flex items-center justify-center"
+                    >
+                      <motion.i
+                        title={skill.title}
+                        className={skill.icon}
+                        whileHover={{ opacity: 0.6 }}
+                      />
+                    </div>
+                  ))}
                 </Block>
 
                 <Block
@@ -130,25 +95,7 @@ export default function Home() {
                   title="Playing Now"
                   contentClassName="w-full"
                 >
-                  <motion.a href="https://open.spotify.com/user/11133280780">
-                    <motion.div className="relative w-full aspect-[18/5]">
-                      <motion.div className="absolute inset-0 bg-gradient-to-r from-[#101010] to-[#202020] animate-pulse rounded-lg" />
-                      <motion.img
-                        width="100%"
-                        height="100%"
-                        whileHover={{ opacity: 0.6 }}
-                        src={imageSrc}
-                        alt="Spotify"
-                        className="w-full relative z-10 object-contain"
-                        onLoad={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.previousElementSibling?.classList.add(
-                            "hidden"
-                          );
-                        }}
-                      />
-                    </motion.div>
-                  </motion.a>
+                  <PlayingNow />
                 </Block>
               </motion.div>
             </section>

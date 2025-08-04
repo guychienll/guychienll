@@ -189,4 +189,12 @@ const PROJECTS = [
   return new Date(b.created).getTime() - new Date(a.created).getTime();
 });
 
-export { NOTES, ProjectCategory, PROJECTS, SKILLS, SOCIAL_LINKS };
+const SITE_ROUTES = [
+  {
+    id: "notes",
+    href: "/notes/category/vim",
+    display: "Notes",
+  },
+];
+
+export { NOTES, ProjectCategory, PROJECTS, SKILLS, SOCIAL_LINKS, SITE_ROUTES };
