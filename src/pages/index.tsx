@@ -1,7 +1,10 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import clsx from "clsx";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import Avatar from "../components/Avatar";
 import Block from "../components/Block";
 import NavigationBar from "../components/NavigationBar";
 import NoteItem from "../components/NoteItem";
@@ -12,6 +15,7 @@ import "./index.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -24,15 +28,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 grid-cols-12 lg:grid-rows-13 gap-4 lg:h-[70dvh] min-h-[850px] w-full p-4">
             <NavigationBar />
             <section className="lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg flex flex-col items-center p-2 h-fit">
-              <img
-                width={200}
-                height={200}
-                src="/img/media/avatar.png"
-                alt="avatar"
-                fetchPriority="high"
-                className="object-cover rounded-full ring-4 h-[200px] ring-[#101010]"
-                loading="eager"
-              />
+              <Avatar isFlipped={isFlipped} onFlip={setIsFlipped} />
               <motion.div className="flex flex-col items-center gap-y-4 py-4">
                 <Block id="name" align="center">
                   <motion.div className="flex flex-col items-center text-gray-100 font-bold text-xl tracking-wider">
@@ -99,7 +95,11 @@ export default function Home() {
                 </Block>
               </motion.div>
             </section>
-            <section className="lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit">
+            <section
+              className={clsx(
+                "lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
+              )}
+            >
               <Block
                 id="notes"
                 title="Notes"
@@ -134,7 +134,11 @@ export default function Home() {
                 </motion.a>
               </motion.div>
             </section>
-            <section className="lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit">
+            <section
+              className={clsx(
+                "lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
+              )}
+            >
               <Block
                 id="portfolio"
                 title="Portfolio"
