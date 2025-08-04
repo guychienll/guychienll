@@ -140,8 +140,8 @@ export default function Home() {
               )}
             >
               <Block
-                id="portfolio"
-                title="Portfolio"
+                id="portfolios"
+                title="Portfolios"
                 contentClassName="lg:flex lg:flex-col lg:gap-y-2 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
                 className="h-full"
               >
@@ -165,7 +165,7 @@ export default function Home() {
                 transition={{ duration: 0.3, delay: 0.5 }}
               >
                 <motion.a
-                  href="/portfolio"
+                  href="/portfolios"
                   className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
                   whileHover={{
                     scale: 1.05,
