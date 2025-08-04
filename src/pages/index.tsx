@@ -131,15 +131,15 @@ export default function Home() {
                   contentClassName="w-full"
                 >
                   <motion.a href="https://open.spotify.com/user/11133280780">
-                    <motion.div className="relative">
-                      <motion.div className="absolute inset-0 bg-gradient-to-r from-[#101010] to-[#202020] animate-pulse rounded-lg w-full aspect-[720/200]" />
+                    <motion.div className="relative w-full aspect-[18/5]">
+                      <motion.div className="absolute inset-0 bg-gradient-to-r from-[#101010] to-[#202020] animate-pulse rounded-lg" />
                       <motion.img
-                        width={200}
-                        height={200}
+                        width="100%"
+                        height="100%"
                         whileHover={{ opacity: 0.6 }}
                         src={imageSrc}
                         alt="Spotify"
-                        className="w-full relative z-10"
+                        className="w-full relative z-10 object-contain"
                         onLoad={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.previousElementSibling?.classList.add(
