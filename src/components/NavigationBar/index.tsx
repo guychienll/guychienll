@@ -1,24 +1,27 @@
-import { SITE_ROUTES } from "../../constants";
+import { useCallback, useEffect, useState } from "react";
+import { DesktopNav, Logo, MobileNav } from "./components";
 
 function NavigationBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleWindowClick = () => closeMenu();
+    window.addEventListener("click", handleWindowClick);
+    return () => window.removeEventListener("click", handleWindowClick);
+  }, [menuOpen, closeMenu]);
+
   return (
-    <section className="p-2 customize-navbar col-span-12 flex items-center justify-between row-span-1 flex-wrap">
-      <div className="font-permanent-marker text-2xl tracking-[0.2em] uppercase">
-        GUYCHIENLL
-      </div>
-      <div className="flex items-center justify-center gap-x-4">
-        {SITE_ROUTES.map((route) => {
-          return (
-            <a
-              key={route.id}
-              href={route.href}
-              className="text-xl font-bold font-sriracha tracking-widest capitalize"
-            >
-              {route.display}
-            </a>
-          );
-        })}
-      </div>
+    <section className="p-2 customize-navbar col-span-12 flex items-center justify-between row-span-1">
+      <Logo />
+      <DesktopNav />
+      <MobileNav
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        closeMenu={closeMenu}
+      />
     </section>
   );
 }

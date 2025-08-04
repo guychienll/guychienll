@@ -103,36 +103,13 @@ export default function Home() {
               <Block
                 id="notes"
                 title="Notes"
-                contentClassName="flex flex-col gap-y-2 w-full"
+                contentClassName="flex flex-col lg:gap-y-4 w-full gap-2"
                 className="h-full"
               >
                 {NOTES.map((note, index) => (
                   <NoteItem key={index} note={note} />
                 ))}
               </Block>
-              <motion.div
-                className="flex self-end mt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-              >
-                <motion.a
-                  href="/notes/category/vim"
-                  className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: {
-                      duration: 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                >
-                  see more
-                </motion.a>
-              </motion.div>
             </section>
             <section
               className={clsx(
@@ -142,45 +119,20 @@ export default function Home() {
               <Block
                 id="portfolios"
                 title="Portfolios"
-                contentClassName="lg:flex lg:flex-col lg:gap-y-2 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
+                contentClassName="lg:flex lg:flex-col lg:gap-y-4 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
                 className="h-full"
               >
-                {PROJECTS.slice(0, 5).map((project) => {
-                  return (
-                    <ProjectItem
-                      key={project.title}
-                      title={project.title}
-                      description={project.description}
-                      image={project.image}
-                      link={project.link}
-                      imageClassName={project.imageClassName}
-                    />
-                  );
-                })}
+                {PROJECTS.slice(0, 5).map((project) => (
+                  <ProjectItem
+                    key={project.title}
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    link={project.link}
+                    imageClassName={project.imageClassName}
+                  />
+                ))}
               </Block>
-              <motion.div
-                className="flex self-end mt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-              >
-                <motion.a
-                  href="/portfolios"
-                  className="text-gray-400 hover:text-gray-200 text-sm font-sriracha tracking-widest"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: {
-                      duration: 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                >
-                  see more
-                </motion.a>
-              </motion.div>
             </section>
           </div>
         </main>

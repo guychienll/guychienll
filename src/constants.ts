@@ -195,6 +195,11 @@ const SITE_ROUTES = [
     href: "/notes/category/vim",
     display: "Notes",
   },
+  {
+    id: "portfolios",
+    href: "/portfolios",
+    display: "Portfolios",
+  },
 ];
 
 export { NOTES, ProjectCategory, PROJECTS, SKILLS, SOCIAL_LINKS, SITE_ROUTES };
