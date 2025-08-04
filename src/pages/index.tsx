@@ -16,7 +16,7 @@ import "./index.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const [isFlipped, setIsFlipped] = useState(true);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
