@@ -51,7 +51,7 @@ export function useSpotifyPlayingNow(isRefreshTokenReady: boolean) {
       if (showLoading) {
         setTimeout(() => {
           setIsLoading(false);
-        }, 1500);
+        }, 1000);
       }
     },
     [isRefreshTokenReady]
