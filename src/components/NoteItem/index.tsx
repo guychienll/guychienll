@@ -64,7 +64,7 @@ function NoteItem(props: NoteItemProps) {
           {note.tags.slice(0, VISIBLE_TAGS_COUNT).map((tag) => (
             <button
               key={tag}
-              className="px-2 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px]"
+              className="px-2 py-1 rounded-full bg-green-900 text-green-300 hover:bg-green-700 hover:text-white transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px] border border-green-700"
               onClick={(e) => {
                 e.stopPropagation();
                 onClickTag(tag);

@@ -12,7 +12,7 @@ export const SongInfo = ({
   artistName,
   albumName,
 }: SongInfoProps) => (
-  <div className="flex flex-col justify-center min-w-0 max-w-[180px]">
+  <div className="flex flex-col justify-center min-w-0 max-w-[220px]">
     <div className="flex items-center gap-2 h-6">
       <MusicBars />
       <span className="text-gray-100 font-bold truncate leading-[24px] h-6 line-clamp-1 max-w-full">

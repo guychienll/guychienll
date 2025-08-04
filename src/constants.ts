@@ -24,6 +24,11 @@ const SOCIAL_LINKS = [
     url: "mailto:guychienll@gmail.com",
   },
   {
+    title: "instagram",
+    icon: "fa-brands fa-instagram text-2xl",
+    url: "https://www.instagram.com/_chienli_/",
+  },
+  {
     title: "threads",
     icon: "fa-brands fa-threads text-2xl",
     url: "https://www.threads.net/@_chienli_",
@@ -48,6 +53,18 @@ const SKILLS = [
   {
     title: "vim",
     icon: "devicon-vim-plain text-2xl",
+  },
+  {
+    title: "html",
+    icon: "devicon-html5-plain text-2xl",
+  },
+  {
+    title: "css",
+    icon: "devicon-css3-plain text-2xl",
+  },
+  {
+    title: "javascript",
+    icon: "devicon-javascript-plain text-2xl",
   },
   {
     title: "typescript",

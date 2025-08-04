@@ -49,9 +49,7 @@ export function useSpotifyPlayingNow(isRefreshTokenReady: boolean) {
       const result = await fetchSpotifyPlayingNow();
       setPlayingNow(result);
       if (showLoading) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        setIsLoading(false);
       }
     },
     [isRefreshTokenReady]

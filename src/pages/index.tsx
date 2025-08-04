@@ -10,12 +10,13 @@ import NavigationBar from "../components/NavigationBar";
 import NoteItem from "../components/NoteItem";
 import PlayingNow from "../components/PlayingNow";
 import ProjectItem from "../components/ProjectItem";
+import TopTracks from "../components/TopTracks";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(true);
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -85,7 +86,69 @@ export default function Home() {
                     </motion.div>
                   ))}
                 </Block>
+              </motion.div>
+            </section>
 
+            {/* notes */}
+            {!isFlipped && (
+              <section
+                className={clsx(
+                  "lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
+                )}
+              >
+                <Block
+                  id="notes"
+                  title="Notes"
+                  contentClassName="flex flex-col lg:gap-y-4 w-full gap-2"
+                  className="h-full"
+                >
+                  {NOTES.map((note, index) => (
+                    <NoteItem key={index} note={note} />
+                  ))}
+                </Block>
+              </section>
+            )}
+
+            {/* portfolios */}
+            {!isFlipped && (
+              <section
+                className={clsx(
+                  "lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
+                )}
+              >
+                <Block
+                  id="portfolios"
+                  title="Portfolios"
+                  contentClassName="lg:flex lg:flex-col lg:gap-y-4 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
+                  className="h-full"
+                >
+                  {PROJECTS.slice(0, 5).map((project) => (
+                    <ProjectItem
+                      key={project.title}
+                      title={project.title}
+                      description={project.description}
+                      image={project.image}
+                      link={project.link}
+                      imageClassName={project.imageClassName}
+                    />
+                  ))}
+                </Block>
+              </section>
+            )}
+
+            {isFlipped && (
+              <section
+                className={clsx(
+                  "lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit gap-y-4"
+                )}
+              >
+                <Block
+                  id="top-tracks"
+                  title="Top Tracks"
+                  contentClassName="w-full"
+                >
+                  <TopTracks />
+                </Block>
                 <Block
                   id="playing-now"
                   title="Playing Now"
@@ -93,47 +156,8 @@ export default function Home() {
                 >
                   <PlayingNow />
                 </Block>
-              </motion.div>
-            </section>
-            <section
-              className={clsx(
-                "lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
-              )}
-            >
-              <Block
-                id="notes"
-                title="Notes"
-                contentClassName="flex flex-col lg:gap-y-4 w-full gap-2"
-                className="h-full"
-              >
-                {NOTES.map((note, index) => (
-                  <NoteItem key={index} note={note} />
-                ))}
-              </Block>
-            </section>
-            <section
-              className={clsx(
-                "lg:col-span-3 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
-              )}
-            >
-              <Block
-                id="portfolios"
-                title="Portfolios"
-                contentClassName="lg:flex lg:flex-col lg:gap-y-4 w-full grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2"
-                className="h-full"
-              >
-                {PROJECTS.slice(0, 5).map((project) => (
-                  <ProjectItem
-                    key={project.title}
-                    title={project.title}
-                    description={project.description}
-                    image={project.image}
-                    link={project.link}
-                    imageClassName={project.imageClassName}
-                  />
-                ))}
-              </Block>
-            </section>
+              </section>
+            )}
           </div>
         </main>
       </Layout>
