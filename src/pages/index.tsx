@@ -4,6 +4,13 @@ import clsx from "clsx";
 import "devicon/devicon.min.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import Video from "yet-another-react-lightbox/plugins/video";
+import "yet-another-react-lightbox/styles.css";
 import Avatar from "../components/Avatar";
 import Block from "../components/Block";
 import NavigationBar from "../components/NavigationBar";
@@ -14,9 +21,97 @@ import TopTracks from "../components/TopTracks";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
 
+const HIGH_LITGHT_ITEM = [
+  {
+    type: "image",
+    url: "/gallary/kkday.jpg",
+    alt: "kkday / graduation",
+    description: "KKday 畢業時，Sandbox 小隊所有成員合照。",
+    date: "2025-07-21",
+  },
+  {
+    type: "image",
+    url: "/gallary/pinkoi.jpg",
+    alt: "pinkoi / graduation",
+    description: "Pinkoi 畢業時，與前端團隊一起拍攝的畢業照。",
+    date: "2023-11-20",
+  },
+  {
+    type: "image",
+    url: "/gallary/graduation.jpg",
+    alt: "university / graduation",
+    description: "大學專題組 ZooPower 的畢業照。",
+    date: "2019-06-18",
+  },
+  {
+    type: "image",
+    url: "/gallary/sunmai.jpg",
+    alt: "sunmai / magic",
+    description: "大學時期，在金色三麥沿桌駐點表演近距離魔術。",
+    date: "2016-09-15",
+  },
+  {
+    type: "image",
+    url: "/gallary/clown.jpg",
+    alt: "clown / magic / balloon",
+    description: "大學時期，學習小丑妝容，在保德信家庭日表演，並製作氣球。",
+    date: "2017-08-20",
+  },
+  {
+    type: "image",
+    url: "/gallary/intern.jpg",
+    alt: "intern / titansoft / graduation",
+    description: "於鈦坦科技實習畢業。",
+    date: "2019-08-30",
+  },
+  {
+    type: "video",
+    url: "/gallary/fjumc.mp4",
+    alt: "fjumc / magic / fju",
+    description: "從輔大畢業後，第一次輔大魔術社老人聚。",
+    videoOptions: {
+      poster: "/gallary/fjumc.jpg",
+      posterAlt: "fjumc",
+    },
+    date: "2020-01-31",
+  },
+  {
+    type: "video",
+    url: "/gallary/dove.mp4",
+    alt: "dove / magic",
+    description: "輔大招生週，在輔大校園內表演出鴿。",
+    videoOptions: {
+      poster: "/gallary/dove.jpg",
+      posterAlt: "dove",
+    },
+    date: "2017-09-27",
+  },
+  {
+    type: "image",
+    url: "/gallary/army.jpg",
+    alt: "army",
+    description: "0111 梯，宜蘭金六結服役。",
+    date: "2020-09-27",
+  },
+  {
+    type: "image",
+    url: "/gallary/revtel.jpg",
+    alt: "revtel",
+    description: "忻旅科技尾牙，所有同事們一起合照與三老闆。",
+    date: "2022-01-12",
+  },
+]
+  .sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateA.getTime() - dateB.getTime();
+  })
+  .reverse();
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [isFlipped, setIsFlipped] = useState(false);
+  const [currentGallaryIndex, setCurrentGallaryIndex] = useState(-1);
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -136,10 +231,11 @@ export default function Home() {
               </section>
             )}
 
+            {/* music */}
             {isFlipped && (
               <section
                 className={clsx(
-                  "lg:col-span-5 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit gap-y-4"
+                  "lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit gap-y-4"
                 )}
               >
                 <Block
@@ -155,6 +251,80 @@ export default function Home() {
                   contentClassName="w-full"
                 >
                   <PlayingNow />
+                </Block>
+              </section>
+            )}
+
+            {/* highlights */}
+            {isFlipped && (
+              <section
+                className={clsx(
+                  "lg:col-span-4 col-span-12 lg:row-span-12 rounded-lg p-2 flex flex-col items-center justify-center h-fit"
+                )}
+              >
+                <Block
+                  id="highlights"
+                  title="Highlights"
+                  contentClassName="w-full"
+                >
+                  <Lightbox
+                    open={currentGallaryIndex !== -1}
+                    close={() => setCurrentGallaryIndex(-1)}
+                    plugins={[Video, Captions, Thumbnails]}
+                    index={currentGallaryIndex}
+                    slides={HIGH_LITGHT_ITEM.map((item) => {
+                      if (item.type === "video") {
+                        return {
+                          src: item.url,
+                          alt: item.alt,
+                          type: item.type,
+                          poster: item.videoOptions?.poster,
+                          autoPlay: true,
+                          controls: false,
+                          loop: true,
+                          playsInline: true,
+                          description: `${item.date}\n${item.description}`,
+                          sources: [
+                            {
+                              src: item.url,
+                              type: "video/mp4",
+                            },
+                          ],
+                        };
+                      }
+                      return {
+                        src: item.url,
+                        alt: item.alt,
+                        description: `${item.date}\n${item.description}`,
+                        type: "image",
+                      };
+                    })}
+                  />
+                  <div className="columns-2 gap-2 w-full">
+                    {HIGH_LITGHT_ITEM.map((item, idx) => {
+                      const isVideo = item.type === "video";
+                      const key = item.url + idx;
+                      const src = isVideo
+                        ? item.videoOptions?.poster
+                        : item.url;
+                      const alt = isVideo
+                        ? item.videoOptions?.posterAlt
+                        : item.alt;
+
+                      return (
+                        <img
+                          key={key}
+                          src={src}
+                          alt={alt}
+                          className="w-full rounded mb-2 object-cover cursor-pointer"
+                          loading="lazy"
+                          onClick={() => {
+                            setCurrentGallaryIndex(idx);
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
                 </Block>
               </section>
             )}
