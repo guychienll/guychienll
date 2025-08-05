@@ -312,12 +312,19 @@ export default function Home() {
                         : item.alt;
 
                       return (
-                        <img
+                        <motion.img
                           key={key}
                           src={src}
                           alt={alt}
                           className="w-full rounded mb-2 object-cover cursor-pointer"
                           loading="lazy"
+                          whileHover={{ scale: 1.05, opacity: 0.85 }}
+                          whileTap={{ scale: 0.97 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                          }}
                           onClick={() => {
                             setCurrentGallaryIndex(idx);
                           }}
