@@ -148,10 +148,6 @@ const config: Config = {
      */
     navbar: {
       title: "guychienll",
-      logo: {
-        alt: "logo",
-        src: "img/notes.webp",
-      },
       items: [
         {
           type: "docSidebar",
