@@ -20,6 +20,7 @@ import ProjectItem from "../components/ProjectItem";
 import TopTracks from "../components/TopTracks";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
 import "./index.css";
+import { useSpotifyRefreshToken } from "../components/PlayingNow/hooks";
 
 const HIGH_LITGHT_ITEM = [
   {
@@ -112,6 +113,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentGallaryIndex, setCurrentGallaryIndex] = useState(-1);
+  const isSpotifyRefreshTokenReady = useSpotifyRefreshToken();
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -243,14 +245,18 @@ export default function Home() {
                   title="Top Tracks"
                   contentClassName="w-full"
                 >
-                  <TopTracks />
+                  <TopTracks
+                    isSpotifyRefreshTokenReady={isSpotifyRefreshTokenReady}
+                  />
                 </Block>
                 <Block
                   id="playing-now"
                   title="Playing Now"
                   contentClassName="w-full"
                 >
-                  <PlayingNow />
+                  <PlayingNow
+                    isSpotifyRefreshTokenReady={isSpotifyRefreshTokenReady}
+                  />
                 </Block>
               </section>
             )}

@@ -1,9 +1,12 @@
 import { LoadingCard, NotPlayingCard, PlayingCard } from "./components";
 import { useSpotifyPlayingNow, useSpotifyRefreshToken } from "./hooks";
 
-function PlayingNow() {
-  const isRefreshTokenReady = useSpotifyRefreshToken();
-  const { playingNow, isLoading } = useSpotifyPlayingNow(isRefreshTokenReady);
+function PlayingNow(props: { isSpotifyRefreshTokenReady: boolean }) {
+  const { isSpotifyRefreshTokenReady } = props;
+
+  const { playingNow, isLoading } = useSpotifyPlayingNow(
+    isSpotifyRefreshTokenReady
+  );
 
   if (isLoading) {
     return <LoadingCard />;

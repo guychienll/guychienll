@@ -17,12 +17,16 @@ type TrackItem = {
 
 const TRACK_COUNT = 6;
 
-function TopTracks() {
+function TopTracks(props: { isSpotifyRefreshTokenReady: boolean }) {
+  const { isSpotifyRefreshTokenReady } = props;
+
   const [isLoading, setIsLoading] = useState(true);
   const [topTracks, setTopTracks] = useState<TrackItem[]>([]);
 
   const fetchTopTracks = useCallback(async () => {
     try {
+      if (!isSpotifyRefreshTokenReady) return;
+
       setIsLoading(true);
       const response = await fetch(
         "https://api.guychienll.dev/spotify/top-tracks",
@@ -45,7 +49,7 @@ function TopTracks() {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [isSpotifyRefreshTokenReady]);
 
   useEffect(() => {
     fetchTopTracks();
