@@ -24,14 +24,14 @@ import "./index.css";
 const HIGH_LITGHT_ITEM = [
   {
     type: "image",
-    url: "/gallary/kkday.jpg",
+    url: "/gallary/kkday.JPG",
     alt: "kkday / graduation",
     description: "KKday 畢業時，Sandbox 小隊所有成員合照。",
     date: "2025-07-21",
   },
   {
     type: "image",
-    url: "/gallary/pinkoi.jpg",
+    url: "/gallary/pinkoi.JPG",
     alt: "pinkoi / graduation",
     description: "Pinkoi 畢業時，與前端團隊一起拍攝的畢業照。",
     date: "2023-11-20",
@@ -88,14 +88,14 @@ const HIGH_LITGHT_ITEM = [
   },
   {
     type: "image",
-    url: "/gallary/army.jpg",
+    url: "/gallary/army.JPG",
     alt: "army",
     description: "0111 梯，宜蘭金六結服役。",
     date: "2020-09-27",
   },
   {
     type: "image",
-    url: "/gallary/revtel.jpg",
+    url: "/gallary/revtel.JPG",
     alt: "revtel",
     description: "忻旅科技尾牙，所有同事們一起合照與三老闆。",
     date: "2022-01-12",
