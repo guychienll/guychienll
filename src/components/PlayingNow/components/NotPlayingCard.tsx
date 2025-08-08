@@ -10,7 +10,6 @@ export const NotPlayingCard = () => (
     </div>
     <div className="flex flex-col justify-center min-w-0 flex-1">
       <div className="flex items-center gap-2">
-        <span className="text-gray-400 text-xs">●</span>
         <span className="text-gray-400 font-bold truncate">
           目前沒有正在播放的音樂
         </span>
