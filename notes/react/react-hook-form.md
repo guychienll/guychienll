@@ -1,19 +1,18 @@
 ---
 id: react-hook-form
-title: 'React Hook Form'
+title: "React Hook Form"
 description: React Hook Form 開發筆記，涵蓋核心用法、效能優化、進階技巧與常見驗證範例。
-tags: [react,form,library]
-keywords: [react,form,library]
-created: '2025-07-25'
+tags: [react, form, library]
+keywords: [react, form, library]
+created: "2025-07-25"
+draft: true
 ---
-
 
 # React Hook Form
 
 React Hook Form 是一個在 React 當中處理表單狀態的函式庫，宗旨在於使用 Uncontrolled Form 改善在處理表單上的效能，可以由[官方問答](https://react-hook-form.com/faqs)中得知這件事情。
 
 > Performance is one of the primary reasons why this library was created. React Hook Form relies on an uncontrolled form, which is the reason why the register function captures ref and the controlled component has its re-rendering scope with Controller or useController. This approach reduces the amount of re-rendering that occurs due to a user typing in an input or other form values changing at the root of your form or applications. Components mount to the page faster than controlled components because they have less overhead. As a reference, there is a quick comparison test that you can refer to at this repo [link](https://github.com/react-hook-form/performance-compare).
-
 
 因此在使用上盡可能優先使用 Uncontrolled 寫法取代 Controlled 寫法。
 
@@ -131,14 +130,14 @@ Uncontrolled Form (`register`) 在使用者輸入時不會觸發組件的重新�
 你可以透過 React Developer Tools，進入 Components 分頁，點選右上角的齒輪（View settings），在 General 頁籤中勾選「Highlight updates when components render」來觀察元件重新渲染的情況。
 :::
 
-
 ![uncontrolled form 範例：register 一個欄位](./img/register.gif)
+
 <div style={{ textAlign: "center", fontSize: "0.95em", color: "#666" }}>
   圖：Uncontrolled Form 範例，使用 `register` 註冊欄位，輸入時組件不會重新渲染。
 </div>
 
-
 ![controlled form 範例：Controller 控制欄位](./img/controlled.gif)
+
 <div style={{
   textAlign: "center",
   fontSize: "0.95em",
@@ -180,7 +179,11 @@ function useDebounceValue<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-const FullName = React.memo(function FullName({ fullName }: { fullName: string }) {
+const FullName = React.memo(function FullName({
+  fullName,
+}: {
+  fullName: string;
+}) {
   return (
     <div className="derived-section">
       <div>FullName (Debounced)</div>
@@ -188,7 +191,6 @@ const FullName = React.memo(function FullName({ fullName }: { fullName: string }
     </div>
   );
 });
-
 
 function App() {
   const form = useForm<FormValues>({
@@ -231,6 +233,7 @@ export default App;
 ```
 
 ![debouncing form](./img/debouncing-form.gif)
+
 <div style={{ textAlign: "center", fontSize: "0.95em", color: "#666" }}>
   圖：結合 `useWatch` 和 `debounce`，優化衍生狀態的顯示。
 </div>
@@ -248,9 +251,13 @@ type FormValues = {
 };
 
 function ValidationForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -258,12 +265,12 @@ function ValidationForm() {
         <label htmlFor="name">Name</label>
         <input
           id="name"
-          {...register("name", { 
-            required: "名字是必填的", 
-            minLength: { value: 2, message: "名字長度至少要 2 個字" } 
+          {...register("name", {
+            required: "名字是必填的",
+            minLength: { value: 2, message: "名字長度至少要 2 個字" },
           })}
         />
-        {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
+        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
       </div>
 
       <div>
@@ -274,18 +281,19 @@ function ValidationForm() {
             required: "Email 是必填的",
             pattern: {
               value: /^\S+@\S+$/i,
-              message: "請輸入有效的 Email 格式"
-            }
+              message: "請輸入有效的 Email 格式",
+            },
           })}
         />
-        {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
+        {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
       </div>
-      
+
       <button type="submit">Submit</button>
     </form>
   );
 }
 ```
+
 - `formState: { errors }`: 從 `useForm` 回傳的物件中可以取得 `errors` 物件，裡面包含了所有欄位的驗證錯誤訊息。
 - `register("fieldName", { ...validationRules })`:
   - `required`: 欄位是否必填。
