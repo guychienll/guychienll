@@ -143,8 +143,8 @@
       "library"
     ],
     "created": "Fri Jul 25 2025",
+    "draft": true,
     "path": "react/react-hook-form",
-    "draft": false,
     "fileName": "react-hook-form.md"
   },
   "29951fcc57d58bd0c7bd85811e2b3473ee4b9caad78a845ac92cc52d69829bed": {
@@ -169,6 +169,28 @@
     "path": "react/reconciliation",
     "draft": false,
     "fileName": "reconciliation.mdx"
+  },
+  "191acbe6395dd96f19a21b3a3d27ee0954d8dfdc2497775b2f440619569fda71": {
+    "id": "self-signed-cert",
+    "title": "Self Signed Certificate",
+    "description": "Self Signed Certificate",
+    "sidebar_position": 2,
+    "created": "Sun Sep 21 2025",
+    "tags": [
+      "web",
+      "certificate",
+      "security",
+      "browser"
+    ],
+    "keywords": [
+      "web",
+      "certificate",
+      "security",
+      "browser"
+    ],
+    "path": "unclassified/self-signed-cert",
+    "draft": false,
+    "fileName": "self-signed-cert.md"
   },
   "446db064927db9b92a73d66d059fb14a0c1c0df30d88731fde2a3eb0a6f83c52": {
     "id": "web-security",

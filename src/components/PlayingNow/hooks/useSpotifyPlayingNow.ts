@@ -27,48 +27,44 @@ function parseSpotifyData(data: any): SpotifyPlayingNow | null {
 
 async function fetchSpotifyPlayingNow(): Promise<SpotifyPlayingNow | null> {
   try {
-    const response = await fetch(SPOTIFY_API_URL, { credentials: "include" });
-    const data = await response.json();
-    return parseSpotifyData(data);
+    // const response = await fetch(SPOTIFY_API_URL, { credentials: "include" });
+    // const data = await response.json();
+    return parseSpotifyData({
+      is_playing: false,
+    });
   } catch (e) {
     console.error(e);
     return null;
   }
 }
 
-export function useSpotifyPlayingNow(isRefreshTokenReady: boolean) {
+export function useSpotifyPlayingNow() {
   const [playingNow, setPlayingNow] = useState<SpotifyPlayingNow | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const updatePlayingNow = useCallback(
-    async (showLoading = false) => {
-      if (!isRefreshTokenReady) return;
-      if (showLoading) {
-        setIsLoading(true);
-      }
-      const result = await fetchSpotifyPlayingNow();
-      setPlayingNow(result);
-      if (showLoading) {
-        setIsLoading(false);
-      }
-    },
-    [isRefreshTokenReady]
-  );
+  const updatePlayingNow = useCallback(async (showLoading = false) => {
+    if (showLoading) {
+      setIsLoading(true);
+    }
+    const result = await fetchSpotifyPlayingNow();
+    setPlayingNow(result);
+    if (showLoading) {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     updatePlayingNow(true);
-
-    if (!isRefreshTokenReady) return;
 
     const interval = setInterval(() => {
       updatePlayingNow(false);
     }, 60_000);
 
     return () => clearInterval(interval);
-  }, [updatePlayingNow, isRefreshTokenReady]);
+  }, [updatePlayingNow]);
 
   return {
-    isLoading: isLoading || !isRefreshTokenReady,
+    isLoading,
     playingNow,
   };
 }

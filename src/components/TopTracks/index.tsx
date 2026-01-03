@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
+import topTracksJson from "./topTracks.json";
 
 type TrackItem = {
   // name
@@ -17,22 +18,23 @@ type TrackItem = {
 
 const TRACK_COUNT = 6;
 
-function TopTracks(props: { isSpotifyRefreshTokenReady: boolean }) {
-  const { isSpotifyRefreshTokenReady } = props;
+function TopTracks(props) {
+  // const { isSpotifyRefreshTokenReady } = props;
 
   const [isLoading, setIsLoading] = useState(true);
   const [topTracks, setTopTracks] = useState<TrackItem[]>([]);
 
   const fetchTopTracks = useCallback(async () => {
     try {
-      if (!isSpotifyRefreshTokenReady) return;
+      // if (!isSpotifyRefreshTokenReady) return;
 
       setIsLoading(true);
-      const response = await fetch(
-        "https://api.guychienll.dev/spotify/top-tracks",
-        { credentials: "include" }
-      );
-      const data = await response.json();
+      // const response = await fetch(
+      //   "https://api.guychienll.dev/spotify/top-tracks",
+      //   { credentials: "include" }
+      // );
+      // const data = await response.json();
+      const data = topTracksJson;
       setTopTracks(
         data.items.map((item: any) => ({
           name: item.name,
@@ -49,7 +51,7 @@ function TopTracks(props: { isSpotifyRefreshTokenReady: boolean }) {
     } finally {
       setIsLoading(false);
     }
-  }, [isSpotifyRefreshTokenReady]);
+  }, []);
 
   useEffect(() => {
     fetchTopTracks();

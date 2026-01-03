@@ -10,7 +10,7 @@ import Highlight from "../components/Highlight";
 import NavigationBar from "../components/NavigationBar";
 import NoteItem from "../components/NoteItem";
 import PlayingNow from "../components/PlayingNow";
-import { useSpotifyRefreshToken } from "../components/PlayingNow/hooks";
+// import { useSpotifyRefreshToken } from "../components/PlayingNow/hooks";
 import ProjectItem from "../components/ProjectItem";
 import TopTracks from "../components/TopTracks";
 import { NOTES, PROJECTS, SKILLS, SOCIAL_LINKS } from "../constants";
@@ -20,7 +20,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentGallaryIndex, setCurrentGallaryIndex] = useState(-1);
-  const isSpotifyRefreshTokenReady = useSpotifyRefreshToken();
+  // const isSpotifyRefreshTokenReady = useSpotifyRefreshToken();
 
   const onClickSocialLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -152,18 +152,14 @@ export default function Home() {
                   title="Top Tracks"
                   contentClassName="w-full"
                 >
-                  <TopTracks
-                    isSpotifyRefreshTokenReady={isSpotifyRefreshTokenReady}
-                  />
+                  <TopTracks />
                 </Block>
                 <Block
                   id="playing-now"
                   title="Playing Now"
                   contentClassName="w-full"
                 >
-                  <PlayingNow
-                    isSpotifyRefreshTokenReady={isSpotifyRefreshTokenReady}
-                  />
+                  <PlayingNow />
                 </Block>
               </section>
             )}
