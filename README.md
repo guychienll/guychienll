@@ -27,11 +27,6 @@ I have nearly 5 years of experience with React, and I have experience in address
   </tr>
 </table>
 
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=guychienll&show_icons=true&locale=en&layout=compact" alt="guychienll" />  
-</div>
-
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=guychienll&label=Profile%20views&color=0e75b6&style=flat" alt="guychienll" />  
 </div>
